@@ -2,6 +2,17 @@
 
 Clash is a cool language. It's also quite intimidating to new users. This book is meant to be a gentle on-ramp to the Clash language.
 
+## Building the book
+Until `mdbook-admonish` ships a version for `mdbook` `0.5`, we pin to old versions:
+```
+cargo install mdbook --version "0.4.52" --locked --force
+cargo install mdbook-admonish
+cargo install mdbook-quiz --locked --version 0.4.0
+cargo install mdbook-mermaid --version 0.16.2 --locked
+```
+then 
+`mdbook build`
+
 ## Book philosophy
 
 The book attempts to introduce concepts in the approximate order a new user will encounter them. When presenting topics, the book will try to be correct (meaning all presented information is correct) but not complete (not all correct information is presented).
