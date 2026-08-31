@@ -1,0 +1,20 @@
+/*
+ * Custom icon overrides for mdbook-admonish.
+ *
+ * Source SVGs live in ./icons/ (kept for reference/editing); the actual
+ * icons below are inlined as data URIs, same technique mdbook-admonish's
+ * own default stylesheet uses, so mdbook doesn't need to separately copy
+ * an external asset file into the built book.
+ *
+ * mask-image only uses the SVG's shape/alpha, not its color, so the
+ * `stroke="currentColor"` in the source files is irrelevant here -
+ * the visible color still comes from each type's `background-color`
+ * rule in mdbook-admonish.css.
+ */
+:root {
+  /* icons/CodexBrackets.svg - CodeX Icons (https://github.com/codex-team/icons) */
+  --md-admonition-icon--admonish-example: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m9 8l-4 4l4 4m6-8l4 4l-4 4'/></svg>");
+
+  /* icons/IonHardwareChipOutline.svg - Ionicons (https://github.com/ionic-team/ionicons) */
+  --md-admonition-icon--admonish-quote: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='352' height='352' x='80' y='80' fill='none' stroke='currentColor' stroke-linejoin='round' stroke-width='32' rx='48' ry='48'/><rect width='224' height='224' x='144' y='144' fill='none' stroke='currentColor' stroke-linejoin='round' stroke-width='32' rx='16' ry='16'/><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M256 80V48m80 32V48M176 80V48m80 416v-32m80 32v-32m-160 32v-32m256-176h32m-32 80h32m-32-160h32M48 256h32m-32 80h32M48 176h32'/></svg>");
+}

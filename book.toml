@@ -1,0 +1,22 @@
+[book]
+title = "Clash Book"
+authors = ["Nathan"]
+language = "en"
+src = "src"
+
+[output.html]
+additional-css = ["./mdbook-admonish.css", "./mdbook-admonish-custom.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[preprocessor]
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.1.0" # do not edit: managed by `mdbook-admonish install`
+
+[preprocessor.quiz]
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
+
+

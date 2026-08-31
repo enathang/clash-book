@@ -1,0 +1,43 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = '''
+What is the bitsize of the following data type?
+
+``` haskell
+data MyType
+	= A (BitVector 32)
+	| B (BitVector 16) True
+	| C (BitVector 1) (BitVector 1) (BitVector 1)
+	| D (BitVector 32)
+	| E (BitVector 16)
+	| F (BitVector 8)
+```
+'''
+answer.answer = "35"
+id = "5a24480f-8724-4f83-817d-84a70d144060"
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = '''
+What is the bitsize of the following data type?
+
+``` haskell
+data MyType
+	= A (BitVector 32)
+	| B (BitVector 16) True
+	| C (BitVector 1) (BitVector 1) (BitVector 1)
+	| D (BitVector 32)
+	| E MyType
+	| F (BitVector 8)
+```
+'''
+answer.answer = "Doesn't compile"
+id = "216444d1-ecd2-41c1-b3a5-3f91ae85aed6"
+
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = "What is the keyword for declaring a variable in Rust?"
+answer.answer = "let"
+context = "For example, you can write: `let x = 1`"
+id = "c5da0c62-64a4-49fb-9f11-5e26d8254f8e"
