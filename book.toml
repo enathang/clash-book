@@ -5,8 +5,8 @@ language = "en"
 src = "src"
 
 [output.html]
-additional-css = ["./mdbook-admonish.css", "./mdbook-admonish-custom.css"]
-additional-js = ["mermaid.min.js", "mermaid-init.js"]
+additional-css = ["./mdbook-admonish.css", "./mdbook-admonish-custom.css", "./mermaid-custom.css", "./blockquote-custom.css"]
+additional-js = ["mermaid.min.js", "mermaid-init.js", "admonish-link.js"]
 
 [preprocessor]
 

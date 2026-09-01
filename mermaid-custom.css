@@ -1,0 +1,17 @@
+/*
+ * Force mermaid edge-label backgrounds to white, overriding whatever the
+ * active theme's computed edgeLabelBackground would otherwise be.
+ * mermaid renders edge labels one of two ways depending on version, so we
+ * cover both: an HTML <span>/<div> inside a <foreignObject> (background-color),
+ * or an SVG <rect> behind the text (fill). !important is needed because
+ * mermaid ships its own generated <style> block with these same selectors.
+ */
+.edgeLabel,
+.edgeLabel .labelBkg,
+.labelBkg {
+  background-color: #ffffff !important;
+}
+.edgeLabel rect,
+.labelBkg rect {
+  fill: #ffffff !important;
+}

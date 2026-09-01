@@ -1,0 +1,54 @@
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = '''
+Which typeclass provides the `max` method for both `Bit` and `BitVector n`?
+
+Feel free to look through the typeclasses above until you find the answer.
+'''
+answer.answer = "Ord"
+id = "c7a7a162-7aba-4915-ab64-7eb7aa462771"
+
+
+[[questions]]
+type = "ShortAnswer"
+prompt.prompt = '''
+What is the binary representation of the following code?
+
+`>>> 8000 :: BitVector 5`
+
+Note: you can either compute it by hand, or just get `clashi` up and running.
+'''
+answer.answer = "Ord"
+id = "e98f8086-f12c-4d5c-b0ba-bcf502d4fcac"
+
+
+[[questions]]
+type = "MultipleChoice"
+prompt.prompt = '''
+Does the following Clash code synthesize?
+
+``` haskell
+f :: BitVector 3 -> BitVector 4 -> BitVector 3
+f a b = (resize a) + b
+```
+'''
+prompt.distractors = [
+  "Yes",
+  "No, it contains a combinational loop",
+  "No, Clash won't let it compile because the result can overflow"
+]
+answer.answer = "No, it fails type-checking"
+context = """
+This question is meant to be tricky, because it looks similar to an example above that would compile.
+
+The output type of `(resize a) + b` is `BitVector 4`, but the type signature of `f` declares the output as
+`BitVector 3`. This type failure is Clash saying "there's a difference between what you say this function
+returns and what it's actually returning."
+
+To fix, you can either change the output type to be `BitVector 4` or rewrite `f a b = a + (resize b)`,
+which would intentionally truncate `b`. Which fix you adopt depends on how you want your circuit to
+behave.
+"""
+id = "a5cdba9d-3d26-4a8d-9bc8-748fccf82a30"
+
+

@@ -17,7 +17,15 @@
     }
 
     const theme = lastThemeWasLight ? 'default' : 'dark';
-    mermaid.initialize({ startOnLoad: true, theme });
+    mermaid.initialize({
+        startOnLoad: true,
+        theme,
+        // Edge labels otherwise get a grey background swatch (computed from
+        // the theme's secondaryColor) meant to keep them legible over
+        // crossing lines. transparent avoids a mismatched box against the
+        // page background in both light and dark mdBook themes.
+        themeVariables: { edgeLabelBackground: '#ffffff' },
+    });
 
     // Simplest way to make mermaid re-render the diagrams in the new theme is via refreshing the page
 

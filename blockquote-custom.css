@@ -1,0 +1,16 @@
+/*
+ * Tone down mdBook's default blockquote treatment (a full background-tinted
+ * box with top/bottom borders) into a quieter left-border style. Reuses
+ * --quote-border, which every built-in mdBook theme already defines with an
+ * appropriate color, so this stays correct across all five themes without
+ * hardcoding any color here.
+ */
+blockquote {
+  background-color: transparent;
+  border-block-start: none;
+  border-block-end: none;
+  border-inline-start: 3px solid var(--quote-border);
+  padding: 0 0 0 1rem;
+  margin: 20px 0;
+  font-style: italic;
+}
