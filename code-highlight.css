@@ -1,0 +1,14 @@
+/*
+ * "Sharpie" highlighting for text marked with <!--hl-->...<!--/hl--> inside
+ * a code block (see code-highlight.js). Uses a translucent background
+ * rather than a solid one so it reads as a highlighter stroke laid over the
+ * existing syntax-highlighting color, and `color: inherit` so the token's
+ * own hljs color keeps showing through rather than being overridden.
+ */
+mark.hl-code {
+  background: rgba(255, 214, 0, 0.4);
+  color: inherit;
+  border-radius: 2px;
+  padding: 0 1px;
+  margin: 0 -1px;
+}
