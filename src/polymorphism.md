@@ -40,6 +40,20 @@ False
 False
 ```
 
+## But doesn't Clash need to know the size of everything at compile time?
+
+Here's a Clash rule of thumb:
+
+The type of the `topEntity` need to be monomorphic, but the types of the functions that we define need not be.
+
+How does that work?
+
+The inputs of our topEntity need to be monomorphic:
+
+And when we define a function application onto our function, it forces Clash to _monomorphize_ the function to a specific type.
+
+This is how we get the best of both worlds: we can define circuits polymorphically, but when we instantiate them, we force Clash to figure out all the types and thereby know the size of every wire at compile time.
+
 **But is this well-defined for any `n`?**
 
 If you're anything like me, the above statement sets off mild alarm bells in your head. Any `n`? How do we know if it's well behaved?

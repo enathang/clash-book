@@ -1,4 +1,7 @@
 # Summary
+- [Introduction](./introduction/introduction.md)
+  - [Introduction to the book](./introduction/introduction_to_book.md)
+  - [Introduction to Clash](./introduction/introduction_to_clash.md)
 - [Chapter 1](./chapter_01/chapter_1.md)
   - [Basic data types](./chapter_01/intro.md)
     - [Bit, BitVector, and BitSize](./chapter_01/bitvector.md)
