@@ -1,0 +1,73 @@
+<svg viewBox="0 0 460 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Static rotateLeftS by 3 on a BitVector 8 rewires each input bit straight to a fixed output bit, with no logic in between.">
+  <style>
+    :root { color: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #e6edf3; }
+    }
+  </style>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <g font-size="13" fill="currentColor">
+    <text x="80" y="32" text-anchor="end">a7</text>
+    <text x="80" y="68" text-anchor="end">a6</text>
+    <text x="80" y="104" text-anchor="end">a5</text>
+    <text x="80" y="140" text-anchor="end">a4</text>
+    <text x="80" y="176" text-anchor="end">a3</text>
+    <text x="80" y="212" text-anchor="end">a2</text>
+    <text x="80" y="248" text-anchor="end">a1</text>
+    <text x="80" y="284" text-anchor="end">a0</text>
+
+    <text x="380" y="32" text-anchor="start">o7</text>
+    <text x="380" y="68" text-anchor="start">o6</text>
+    <text x="380" y="104" text-anchor="start">o5</text>
+    <text x="380" y="140" text-anchor="start">o4</text>
+    <text x="380" y="176" text-anchor="start">o3</text>
+    <text x="380" y="212" text-anchor="start">o2</text>
+    <text x="380" y="248" text-anchor="start">o1</text>
+    <text x="380" y="284" text-anchor="start">o0</text>
+  </g>
+
+  <g fill="currentColor">
+    <circle cx="94" cy="28" r="3"/>
+    <circle cx="94" cy="64" r="3"/>
+    <circle cx="94" cy="100" r="3"/>
+    <circle cx="94" cy="136" r="3"/>
+    <circle cx="94" cy="172" r="3"/>
+    <circle cx="94" cy="208" r="3"/>
+    <circle cx="94" cy="244" r="3"/>
+    <circle cx="94" cy="280" r="3"/>
+
+    <circle cx="366" cy="28" r="3"/>
+    <circle cx="366" cy="64" r="3"/>
+    <circle cx="366" cy="100" r="3"/>
+    <circle cx="366" cy="136" r="3"/>
+    <circle cx="366" cy="172" r="3"/>
+    <circle cx="366" cy="208" r="3"/>
+    <circle cx="366" cy="244" r="3"/>
+    <circle cx="366" cy="280" r="3"/>
+  </g>
+
+  <!-- every other wire: same fixed shift-by-3 rewiring, dimmed so the
+       highlighted one below stands out -->
+  <g fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.55">
+    <line x1="98" y1="64"  x2="362" y2="244" marker-end="url(#arrow)"/>
+    <line x1="98" y1="100" x2="362" y2="280" marker-end="url(#arrow)"/>
+    <line x1="98" y1="136" x2="362" y2="28"  marker-end="url(#arrow)"/>
+    <line x1="98" y1="172" x2="362" y2="64"  marker-end="url(#arrow)"/>
+    <line x1="98" y1="208" x2="362" y2="100" marker-end="url(#arrow)"/>
+    <line x1="98" y1="244" x2="362" y2="136" marker-end="url(#arrow)"/>
+    <line x1="98" y1="280" x2="362" y2="172" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- highlighted wire: a7 -> o2, called out to trace the shift-by-3 pattern -->
+  <line x1="98" y1="28" x2="362" y2="208" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow-accent)"/>
+  <text x="230" y="108" text-anchor="middle" font-size="12" fill="#d97706">shifts down 3 slots</text>
+</svg>

@@ -1,0 +1,251 @@
+<svg viewBox="0 0 508 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Gate-level netlist of a dynamic rotateLeft on a BitVector 8: three stages of eight 2-to-1 multiplexer cells each, one stage per bit of the runtime rotation amount, wired with the corresponding power-of-two rotation and a shared select line fanned out to all eight cells in a stage.">
+  <style>
+    :root { color: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #e6edf3; }
+    }
+  </style>
+
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+</defs>
+<g font-size="12" fill="currentColor">
+<text x="40" y="38" text-anchor="end">a7</text>
+<text x="468" y="38" text-anchor="start">o7</text>
+<text x="40" y="62" text-anchor="end">a6</text>
+<text x="468" y="62" text-anchor="start">o6</text>
+<text x="40" y="86" text-anchor="end">a5</text>
+<text x="468" y="86" text-anchor="start">o5</text>
+<text x="40" y="110" text-anchor="end">a4</text>
+<text x="468" y="110" text-anchor="start">o4</text>
+<text x="40" y="134" text-anchor="end">a3</text>
+<text x="468" y="134" text-anchor="start">o3</text>
+<text x="40" y="158" text-anchor="end">a2</text>
+<text x="468" y="158" text-anchor="start">o2</text>
+<text x="40" y="182" text-anchor="end">a1</text>
+<text x="468" y="182" text-anchor="start">o1</text>
+<text x="40" y="206" text-anchor="end">a0</text>
+<text x="468" y="206" text-anchor="start">o0</text>
+</g>
+<g fill="currentColor">
+<circle cx="70" cy="34" r="2.2"/>
+<circle cx="70" cy="58" r="2.2"/>
+<circle cx="70" cy="82" r="2.2"/>
+<circle cx="70" cy="106" r="2.2"/>
+<circle cx="70" cy="130" r="2.2"/>
+<circle cx="70" cy="154" r="2.2"/>
+<circle cx="70" cy="178" r="2.2"/>
+<circle cx="70" cy="202" r="2.2"/>
+</g>
+<g stroke="currentColor" stroke-width="1.2" fill="none">
+<line x1="44" y1="34" x2="70" y2="34"/>
+<line x1="44" y1="58" x2="70" y2="58"/>
+<line x1="44" y1="82" x2="70" y2="82"/>
+<line x1="44" y1="106" x2="70" y2="106"/>
+<line x1="44" y1="130" x2="70" y2="130"/>
+<line x1="44" y1="154" x2="70" y2="154"/>
+<line x1="44" y1="178" x2="70" y2="178"/>
+<line x1="44" y1="202" x2="70" y2="202"/>
+</g>
+<g>
+<line x1="70" y1="34" x2="114" y2="28" stroke="currentColor" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M 70 58 L 92.0 58 L 92.0 40 L 114 40" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="70" y1="58" x2="114" y2="52" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 82 L 92.0 82 L 92.0 64 L 114 64" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="82" x2="114" y2="76" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 106 L 92.0 106 L 92.0 88 L 114 88" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="106" x2="114" y2="100" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 130 L 92.0 130 L 92.0 112 L 114 112" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="130" x2="114" y2="124" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 154 L 92.0 154 L 92.0 136 L 114 136" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="154" x2="114" y2="148" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 178 L 92.0 178 L 92.0 160 L 114 160" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="178" x2="114" y2="172" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 202 L 92.0 202 L 92.0 184 L 114 184" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="70" y1="202" x2="114" y2="196" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 70 34 L 92.0 34 L 92.0 208 L 114 208" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+</g>
+<g stroke="currentColor" stroke-width="1.4" fill="none">
+<rect x="114" y="24" width="34" height="20" rx="3"/>
+<rect x="114" y="48" width="34" height="20" rx="3"/>
+<rect x="114" y="72" width="34" height="20" rx="3"/>
+<rect x="114" y="96" width="34" height="20" rx="3"/>
+<rect x="114" y="120" width="34" height="20" rx="3"/>
+<rect x="114" y="144" width="34" height="20" rx="3"/>
+<rect x="114" y="168" width="34" height="20" rx="3"/>
+<rect x="114" y="192" width="34" height="20" rx="3"/>
+</g>
+<g>
+<line x1="148" y1="34" x2="194" y2="34" stroke="currentColor" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<line x1="148" y1="58" x2="194" y2="58" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="82" x2="194" y2="82" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="106" x2="194" y2="106" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="130" x2="194" y2="130" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="154" x2="194" y2="154" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="178" x2="194" y2="178" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="148" y1="202" x2="194" y2="202" stroke="currentColor" stroke-width="1.2" fill="none"/>
+</g>
+<line x1="96" y1="34" x2="96" y2="242" stroke="currentColor" stroke-width="1.2"/>
+<g fill="currentColor">
+<path d="M 96 34 L 108 43 L 114 43" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="34" r="1.8"/>
+<path d="M 96 58 L 108 67 L 114 67" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="58" r="1.8"/>
+<path d="M 96 82 L 108 91 L 114 91" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="82" r="1.8"/>
+<path d="M 96 106 L 108 115 L 114 115" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="106" r="1.8"/>
+<path d="M 96 130 L 108 139 L 114 139" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="130" r="1.8"/>
+<path d="M 96 154 L 108 163 L 114 163" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="154" r="1.8"/>
+<path d="M 96 178 L 108 187 L 114 187" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="178" r="1.8"/>
+<path d="M 96 202 L 108 211 L 114 211" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="96" cy="202" r="1.8"/>
+</g>
+<text x="96" y="257" text-anchor="middle" font-size="12" fill="currentColor">n!0</text>
+<g font-size="9.5" fill="currentColor">
+<text x="117" y="26" text-anchor="start">0</text>
+<text x="117" y="42" text-anchor="start">1</text>
+<text x="131.0" y="48" text-anchor="middle">S</text>
+<text x="145" y="31" text-anchor="end">Y</text>
+</g>
+<text x="131.0" y="18" text-anchor="middle" font-size="11" fill="#d97706">MUX2 (x8 per stage)</text>
+<g fill="currentColor">
+<circle cx="194" cy="34" r="2.2"/>
+<circle cx="194" cy="58" r="2.2"/>
+<circle cx="194" cy="82" r="2.2"/>
+<circle cx="194" cy="106" r="2.2"/>
+<circle cx="194" cy="130" r="2.2"/>
+<circle cx="194" cy="154" r="2.2"/>
+<circle cx="194" cy="178" r="2.2"/>
+<circle cx="194" cy="202" r="2.2"/>
+</g>
+<g>
+<line x1="194" y1="34" x2="238" y2="28" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 82 L 216.0 82 L 216.0 40 L 238 40" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="58" x2="238" y2="52" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 106 L 216.0 106 L 216.0 64 L 238 64" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="82" x2="238" y2="76" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 130 L 216.0 130 L 216.0 88 L 238 88" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="106" x2="238" y2="100" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 154 L 216.0 154 L 216.0 112 L 238 112" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="130" x2="238" y2="124" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 178 L 216.0 178 L 216.0 136 L 238 136" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="154" x2="238" y2="148" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 202 L 216.0 202 L 216.0 160 L 238 160" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="178" x2="238" y2="172" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 34 L 216.0 34 L 216.0 184 L 238 184" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="194" y1="202" x2="238" y2="196" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 194 58 L 216.0 58 L 216.0 208 L 238 208" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+</g>
+<g stroke="currentColor" stroke-width="1.4" fill="none">
+<rect x="238" y="24" width="34" height="20" rx="3"/>
+<rect x="238" y="48" width="34" height="20" rx="3"/>
+<rect x="238" y="72" width="34" height="20" rx="3"/>
+<rect x="238" y="96" width="34" height="20" rx="3"/>
+<rect x="238" y="120" width="34" height="20" rx="3"/>
+<rect x="238" y="144" width="34" height="20" rx="3"/>
+<rect x="238" y="168" width="34" height="20" rx="3"/>
+<rect x="238" y="192" width="34" height="20" rx="3"/>
+</g>
+<g>
+<line x1="272" y1="34" x2="318" y2="34" stroke="currentColor" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<line x1="272" y1="58" x2="318" y2="58" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="82" x2="318" y2="82" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="106" x2="318" y2="106" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="130" x2="318" y2="130" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="154" x2="318" y2="154" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="178" x2="318" y2="178" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="272" y1="202" x2="318" y2="202" stroke="currentColor" stroke-width="1.2" fill="none"/>
+</g>
+<line x1="220" y1="34" x2="220" y2="242" stroke="currentColor" stroke-width="1.2"/>
+<g fill="currentColor">
+<path d="M 220 34 L 232 43 L 238 43" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="34" r="1.8"/>
+<path d="M 220 58 L 232 67 L 238 67" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="58" r="1.8"/>
+<path d="M 220 82 L 232 91 L 238 91" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="82" r="1.8"/>
+<path d="M 220 106 L 232 115 L 238 115" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="106" r="1.8"/>
+<path d="M 220 130 L 232 139 L 238 139" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="130" r="1.8"/>
+<path d="M 220 154 L 232 163 L 238 163" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="154" r="1.8"/>
+<path d="M 220 178 L 232 187 L 238 187" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="178" r="1.8"/>
+<path d="M 220 202 L 232 211 L 238 211" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="220" cy="202" r="1.8"/>
+</g>
+<text x="220" y="257" text-anchor="middle" font-size="12" fill="currentColor">n!1</text>
+<g fill="currentColor">
+<circle cx="318" cy="34" r="2.2"/>
+<circle cx="318" cy="58" r="2.2"/>
+<circle cx="318" cy="82" r="2.2"/>
+<circle cx="318" cy="106" r="2.2"/>
+<circle cx="318" cy="130" r="2.2"/>
+<circle cx="318" cy="154" r="2.2"/>
+<circle cx="318" cy="178" r="2.2"/>
+<circle cx="318" cy="202" r="2.2"/>
+</g>
+<g>
+<line x1="318" y1="34" x2="362" y2="28" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 130 L 340.0 130 L 340.0 40 L 362 40" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="58" x2="362" y2="52" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 154 L 340.0 154 L 340.0 64 L 362 64" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="82" x2="362" y2="76" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 178 L 340.0 178 L 340.0 88 L 362 88" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="106" x2="362" y2="100" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 202 L 340.0 202 L 340.0 112 L 362 112" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="130" x2="362" y2="124" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 34 L 340.0 34 L 340.0 136 L 362 136" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="154" x2="362" y2="148" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 58 L 340.0 58 L 340.0 160 L 362 160" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="178" x2="362" y2="172" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 82 L 340.0 82 L 340.0 184 L 362 184" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+<line x1="318" y1="202" x2="362" y2="196" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55" marker-end="url(#arrow)"/>
+<path d="M 318 106 L 340.0 106 L 340.0 208 L 362 208" stroke="currentColor" stroke-width="1.2" fill="none" opacity="0.55"/>
+</g>
+<g stroke="currentColor" stroke-width="1.4" fill="none">
+<rect x="362" y="24" width="34" height="20" rx="3"/>
+<rect x="362" y="48" width="34" height="20" rx="3"/>
+<rect x="362" y="72" width="34" height="20" rx="3"/>
+<rect x="362" y="96" width="34" height="20" rx="3"/>
+<rect x="362" y="120" width="34" height="20" rx="3"/>
+<rect x="362" y="144" width="34" height="20" rx="3"/>
+<rect x="362" y="168" width="34" height="20" rx="3"/>
+<rect x="362" y="192" width="34" height="20" rx="3"/>
+</g>
+<g>
+<line x1="396" y1="34" x2="442" y2="34" stroke="currentColor" stroke-width="1.2" fill="none" marker-end="url(#arrow)"/>
+<line x1="396" y1="58" x2="442" y2="58" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="82" x2="442" y2="82" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="106" x2="442" y2="106" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="130" x2="442" y2="130" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="154" x2="442" y2="154" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="178" x2="442" y2="178" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<line x1="396" y1="202" x2="442" y2="202" stroke="currentColor" stroke-width="1.2" fill="none"/>
+</g>
+<line x1="344" y1="34" x2="344" y2="242" stroke="currentColor" stroke-width="1.2"/>
+<g fill="currentColor">
+<path d="M 344 34 L 356 43 L 362 43" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="34" r="1.8"/>
+<path d="M 344 58 L 356 67 L 362 67" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="58" r="1.8"/>
+<path d="M 344 82 L 356 91 L 362 91" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="82" r="1.8"/>
+<path d="M 344 106 L 356 115 L 362 115" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="106" r="1.8"/>
+<path d="M 344 130 L 356 139 L 362 139" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="130" r="1.8"/>
+<path d="M 344 154 L 356 163 L 362 163" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="154" r="1.8"/>
+<path d="M 344 178 L 356 187 L 362 187" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="178" r="1.8"/>
+<path d="M 344 202 L 356 211 L 362 211" stroke="currentColor" stroke-width="1.1" fill="none"/>
+<circle cx="344" cy="202" r="1.8"/>
+</g>
+<text x="344" y="257" text-anchor="middle" font-size="12" fill="currentColor">n!2</text>
+</svg>

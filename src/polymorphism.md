@@ -23,7 +23,9 @@ Haskell allows (and encourages) functions to be polymorphic. This is probably on
 
 **Circling back to our example**
 
-Haskell allows us to use `type variables` in our type signatures to abstractly represent types. In our above example, we can substitute in a generic `n` for the concrete type-level `4`.
+Haskell allows us to use `type variables` in our type signatures to abstractly represent types. You can recognize `type variables` because they always start with a lower case character.
+
+In our above example, we can substitute in a generic `n` for the concrete type-level `4`.
 ```
 isEven :: BitVector n -> Bool
 isEven a = (mod a 2) == 0
@@ -39,20 +41,6 @@ False
 >>> isEven (333 :: BitVector 100000)
 False
 ```
-
-## But doesn't Clash need to know the size of everything at compile time?
-
-Here's a Clash rule of thumb:
-
-The type of the `topEntity` need to be monomorphic, but the types of the functions that we define need not be.
-
-How does that work?
-
-The inputs of our topEntity need to be monomorphic:
-
-And when we define a function application onto our function, it forces Clash to _monomorphize_ the function to a specific type.
-
-This is how we get the best of both worlds: we can define circuits polymorphically, but when we instantiate them, we force Clash to figure out all the types and thereby know the size of every wire at compile time.
 
 **But is this well-defined for any `n`?**
 
@@ -179,6 +167,20 @@ Only allow types that are 3 bits or larger, so no default needed
 getThirdBit :: BitPack a, BitSize a >= 3 => a -> Bit
 getThirdBit input = (pack input) !! 3
 ```
+
+## But doesn't Clash need to know the size of everything at compile time?
+
+Here's a Clash rule of thumb:
+
+The type of the `topEntity` need to be monomorphic, but the types of the functions that we define need not be.
+
+How does that work?
+
+The inputs of our topEntity need to be monomorphic:
+
+And when we define a function application onto our function, it forces Clash to _monomorphize_ the function to a specific type.
+
+This is how we get the best of both worlds: we can define circuits polymorphically, but when we instantiate them, we force Clash to figure out all the types and thereby know the size of every wire at compile time.
 
 ## Why do we care about making functions polymorphic?
 

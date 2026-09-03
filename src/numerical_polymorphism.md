@@ -31,8 +31,43 @@ Put another way, **there are constraints that can be expressed, which are true, 
 
 This is a perfectly agreeable tradeoff for most Haskell users: giving up something they didn't use for faster type checking. Turns out, it's very useful to be able to do this type level math for Clash.
 
-Luckily, Haskell allows plugins to the type checker, which extend its capabilities.
+Luckily, Haskell allows plugins to the type checker, which extend its capabilities. In fact, Clash provides _three_ out of the box.
+
+* ghc-typelits-natnormalise
+* ghc-typelits-knownnat
+* ghc-typelits-extra
+
+But even these three plugins don't support the full spectrum of type level math. It might be your calling to write the next one!
 
 ## Numerical constraints (with Clash's typechecker plugins)
 
 ## Common gotcha: forall.
+There is one pitfall with type variables in Haskell that is so common that it warrants its own section.
+
+We can define type variables both in the definition of functions and within our `where` clauses.
+
+```
+f :: Vec n a -> Vec n a -> Vec n a
+f x y = z
+ where
+  z = 3 :: Vec n a
+```
+
+Within our type signature for `f`, both `n` and `a` are universal. HOWEVER, the type variables `n` and `a` within the `where` clause are NOT automatically assumed by ghc to be the same type variables as the function signature.
+
+Meaning even though you use the same name for the type variable, you can run into the error message
+
+```
+Could not deduce `n ~ n0`.
+```
+
+However, if you add the quatifier `forall` to the type variables.
+
+```
+f :: forall n a. Vec n a -> Vec n a -> Vec n a
+f x y = z
+ where
+  z = 3 :: Vec n a
+```
+
+Then it will compile cleanly.

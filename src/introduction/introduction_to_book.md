@@ -11,3 +11,4 @@ This book makes liberal use of the quality existing Clash documentation, both of
 If this book is not to your style, I can recommend a number of other resources:
 * The official Clash documentation and webpage
 * George Erdi's Retrocomputing with Clash book
+* Learn you a Haskell for the Greater Good

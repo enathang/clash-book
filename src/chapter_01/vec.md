@@ -1,6 +1,6 @@
 # Vec, Tuples
 
-We often want to work with collections of things. Clash offers two ways to do this: `Vec`s and tuples (denoted by `()`).
+We often want to work with collections of things. Clash offers two main ways to do this: `Vec`s and tuples (denoted by `()`).
 
 When deciding whether to use `Vec` or tuple:
 * If the collection needs to be of multiple types, use a tuple
@@ -9,10 +9,10 @@ When deciding whether to use `Vec` or tuple:
 ## Vec n a
 Haskell programs often use Lists to represent ordered collections of elements. However, Lists are dynamically-sized and unknown size at compile time. They can even be infinite size in Haskell!
 
-Clash datatypes, since they're just Haskell data types, work perfectly fine with lists:
+Clash datatypes, since they're just Haskell data types, work perfectly fine with lists when running as a program:
 
 ```
->>> let x = [3, 4, 5] :: [BitVector 8]
+>>> let x = [3, 4, 5] :: [BitVector 8]    -- This is a list
 ```
 
 However, Clash cannot **synthesize** them into hardware.
@@ -45,7 +45,26 @@ clashi> x !! 3
 ```
 ````
 
-Creating:
+You may notice two main things about Vecs:
+* All elements are of the same type (identical to lists)
+* The size of the vector is always statically known (or able to be inferred)
+
+Note, due to Haskell's type inference, the size of the vector must be known at compile time, it does not need to be explicitly annotated.
+
+```
+f :: Vec 3 Bool -> Vec 5 Bool
+f v = final_v
+ where
+   intermediate_v = (singleton False) ++ v
+   final_v = (singleton True) ++ intermediate_v
+```
+
+In the above example, the Haskell typechecker can infer that `intermediate_v` is of type `Vec 4 Bool`, even though we never explicitly declare it.
+
+**Functions on Vectors**
+
+While normally we'd walk you through some of the common Vector functions, there are enough of them that we will just list them below. There are more functions available than we list, but we cover the ones you will most likely use when starting with Clash. Note that each one has an included example of how they work.
+
 ````admonish example title="Creating"
 
 <details>
@@ -60,11 +79,11 @@ Creating:
 <details>
 <summary><code class="language-haskell">iterate :: SNat n -> (a -> a) -> a -> Vec n a </code></summary>
 </details>
-````
 
-```
->>> replicate d3
-```
+You can also create them literally
+
+`x = 3 :> 4 :> 5 :> Nil`
+````
 
 ````admonish example title="Getting individual elements"
 <details>
@@ -136,40 +155,16 @@ Creating:
 </details>
 ````
 
-Accessors:
-```
->>> let x = 3 :> 4 :> 5 :> 6 :> Nil :: Vec 4 (BitVector 8)
->>> length x
-4
->>> head x
-3
->>> tail x
-4 :> 5 :> :> 6 :> Nil
-```
-Splitting:
-```
->> take d2 x
-3 :> 4 :> Nil
->> drop d2 x
-5 :> 6 :> Nil
->> splitAt d2 x
-(3 :> 4 :> Nil, 5 :> 6 :> Nil)
-```
-
-`Vec`s are a pretty strightforward data type. However, because they occur so often in Clash code, Clash has defined a large number of functions for `Vec`s. So below we provide a cheat-sheet for the most common ones.
-
-```
-```
 
 
 ## Tuples
 Tuples are one of the standard Haskell workhorses. Unlike most other types in Haskell, tuples are embedded into the Haskell language itself.
 
-````admonish example
+````admonish example title="Tuples"
 ```
-(a, b)
-(a, b, c)
-(a, b, c, d)
+(a, b)              -- a 2-tuple
+(a, b, c)           -- a 3-tuple
+(a, b, c, d)        -- ...
 (a, b, c, d, ...)
 ```
 
