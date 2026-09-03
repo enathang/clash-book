@@ -9,6 +9,7 @@ cargo install mdbook --version "0.4.52" --locked --force
 cargo install mdbook-admonish
 cargo install mdbook-quiz --locked --version 0.4.0
 cargo install mdbook-mermaid --version 0.16.2 --locked
+cargo install mdbook-chapter-zero
 ```
 then 
 `mdbook build`
