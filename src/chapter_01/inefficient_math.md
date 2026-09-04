@@ -1,12 +1,15 @@
 # Common pitfall: Inefficient math
 
-If you come from the software world (as I did), you instinctively believe that all basic math operations are equal. Each operation takes one clock cycle in the CPU. In hardware, this is quite far from the truth (in a number of ways).
+If you come from the software world (as I did), you instinctively believe that all basic math operations are roughly equal. Each operation takes one clock cycle in the CPU. In hardware, this is quite far from the truth (in a number of ways).
 
 Though these symbols (`+`, `-`, `*`, `/`, `%`, `^`) all take up one character on our screen, in hardware they generate vastly different size circuits (and can scale widely depending on the input sizes).
 
-**Example: Addition**
+**Example: Addition, Subtraction**
 
-**Example: Division**
+Addition and subtraction are two of the most efficient operations in hardware. In fact, I would argue that a large reason we landed on the binary encoding of numbers that we did was because it made addition and subtraction so efficient in hardware.
+
+
+**Example: Multiplication, Division**
 
 **Example: Modulo**
 

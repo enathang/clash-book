@@ -1,6 +1,6 @@
 # Vec, Tuples
 
-We often want to work with collections of things. Clash offers two main ways to do this: `Vec`s and tuples (denoted by `()`).
+We often want to work with collections of things. Clash offers two main ways to do this: `Vec`s and tuples (denoted by `(,)`).
 
 When deciding whether to use `Vec` or tuple:
 * If the collection needs to be of multiple types, use a tuple
@@ -67,6 +67,12 @@ While normally we'd walk you through some of the common Vector functions, there 
 
 ````admonish example title="Creating"
 
+We can create them literally
+
+`x = 3 :> 4 :> 5 :> Nil`
+
+or use one of the following functions
+
 <details>
 <summary><code class="language-haskell">singleton :: a -> Vec 1 a</code></summary>
 </details>
@@ -80,9 +86,6 @@ While normally we'd walk you through some of the common Vector functions, there 
 <summary><code class="language-haskell">iterate :: SNat n -> (a -> a) -> a -> Vec n a </code></summary>
 </details>
 
-You can also create them literally
-
-`x = 3 :> 4 :> 5 :> Nil`
 ````
 
 ````admonish example title="Getting individual elements"
@@ -155,10 +158,23 @@ You can also create them literally
 </details>
 ````
 
+````admonish example title="Functions over elements"
+See the [Map, Zip, Fold](./map.md) section
+````
+
+````admonish example title="Conversions"
+<details>
+<summary><code class="language-haskell">toList :: Vec n a -> [a] </code></summary>
+</details>
+<details>
+<summary><code class="language-haskell">fromList :: forall n a. KnownNat n => [a] -> Maybe (Vec n a) </code></summary>
+</details>
+````
+
 
 
 ## Tuples
-Tuples are one of the standard Haskell workhorses. Unlike most other types in Haskell, tuples are embedded into the Haskell language itself.
+We may want to work with collections of different types. Tuples are the standard way of doing so.
 
 ````admonish example title="Tuples"
 ```

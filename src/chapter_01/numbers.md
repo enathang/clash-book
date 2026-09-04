@@ -2,7 +2,7 @@
 
 We often want to work with data not as raw bits but as numbers. This is true in hardware and software.
 
-Luckily, we as a society have developed (and agreed-upon) abstractions to allow us to work with numbers and let the compiler handle translating them into bits. Clash provides a handful of popular options out of the box, and allows the user to define more if they wish. We will look at two of the most popular in this section: `Unsigned n` and `Signed n`.
+Luckily, we as a society have developed (and more importantly agree-upon) abstractions to allow us to work with numbers and let the compiler handle translating them into bits. Clash provides a handful of popular options out of the box, and allows the user to define more if they wish. We will look at two of the most popular in this section: `Unsigned n` and `Signed n`.
 
 
 ## Unsigned

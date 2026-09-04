@@ -90,9 +90,7 @@ Where `a` can be any type.
 Haskell syntax is
 `funcName :: Constraint1, ... => Type1 -> Type2 -> ... -> OutputType`
 
-```admonish info
-A good rule of thumb is:
-
+```admonish info title="A good rule of thumb"
 If it's hard to think generically, it's okay to start out by writing a function using concrete data types. Often times, when you're writing a function, you have a specific use case in mind, so just use those types.
 
 Then, once you've written your function, identify every function you use in your function, and check the requirements (constraints + types) of those functions. Then use as generic a type as will allow those functions to type check.

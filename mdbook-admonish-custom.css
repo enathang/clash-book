@@ -41,3 +41,21 @@
 .admonish-header-link:hover {
   opacity: 1;
 }
+
+/*
+ * Recolor the "bug" admonish type to the same neutral grey as "quote",
+ * instead of mdbook-admonish's default pink (#f50057). Only the color
+ * declarations are overridden here - the bug icon itself is untouched.
+ * Selectors are copied verbatim from mdbook-admonish.css so specificity
+ * matches and this file's later position in `additional-css` wins.
+ */
+:is(.admonition):is(.admonish-bug) {
+  border-color: #9e9e9e;
+}
+
+:is(.admonish-bug) > :is(.admonition-title, summary.admonition-title) {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+:is(.admonish-bug) > :is(.admonition-title, summary.admonition-title)::before {
+  background-color: #9e9e9e;
+}

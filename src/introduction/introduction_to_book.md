@@ -6,9 +6,10 @@ Other people might have different opinions on the order of topic presentation, t
 
 The book is designed to have many examples and plenty of examples mapping between Clash code and the output hardware. Each section is designed to introduce one or two new concepts, be bite-sized, and be easy. There is plenty of complexity to Clash already; I don't feel the need to have the intro book be a part of that complexity. The goal here is to get a new user started and to show them avenues where they might investigate more. That way, the reader views the complexity as tractable rather than an indivisible barrier to entry.
 
-This book makes liberal use of the quality existing Clash documentation, both official and unofficial, to inform its content. I don't pretend much of here is new, as I stand on the shoulders of giants, just that it's my way of cutting up the content.
+This book makes liberal use of the quality existing Clash documentation, both official and unofficial, to inform its content. I don't pretend much here is new, as I stand on the shoulders of giants, just that it's my way of cutting up the content.
 
 If this book is not to your style, I can recommend a number of other resources:
-* The official Clash documentation and webpage
+* The official Clash [documentation](https://clash-lang.org/documentation/), including the official Clash [book](https://docs.clash-lang.org/tutorial/)
+* The [Clash Prelude](https://hackage.haskell.org/package/clash-prelude) on Hackage
 * George Erdi's Retrocomputing with Clash book
 * Learn you a Haskell for the Greater Good

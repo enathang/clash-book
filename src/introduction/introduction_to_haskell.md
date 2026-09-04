@@ -18,7 +18,7 @@ variable = 5
 otherVariable = 6
 ```
 
-## Haskell Types
+## Haskell types
 Haskell types always begin with a capital letter.
 
 Some common Haskell types are: `Int`, `Integer`, `Bool`, `Char`, `String`, `[]` (`List`), `()` (`Tuple`).
@@ -58,17 +58,11 @@ They have the general structure
 ```
 -- This is the type signature of the function, with
 -- the function declaration below it
-functionName :: InputType1 -> InputType2 -> ... -> OutputType
+functionName :: Constraint1, ... => InputType1 -> InputType2 -> ... -> OutputType
 functionName input1 input2 = outputExpression
 ```
 
-or when you get into more advanced Haskell
-<details>
-<summary></summary>
-<code>
-functionName :: Constraint1, ... => InputType1 -> InputType2 -> ... -> OutputType
-</code>
-</details>
+Don't worry about `Constraint1` for now. We will cover them in a later chapter.
 
 **Example**
 
@@ -88,19 +82,34 @@ divideAndMod a b = (a / b, a % b)
 
 **Type variables**
 
-Haskell also allows you to declare type annotations with type variables. These are lower case and usually one letter (`a`, `b`, `n`, etc.) This means the function works over multiple types. We will cover them in a later chapter, but you will see them everywhere in Haskell code (especially the documentation) so we mention them here. 
+Haskell also allows you to declare type annotations with `type variables`. These are lower case and usually one letter (`a`, `b`, `n`, etc.)
+
+For example, here's a function pulled from Haskell's `List` library
+
+`reverse :: [a] -> [a]`
+
+This means the function can work over multiple types. We will cover them in a later chapter, but you will see them everywhere in Haskell code (especially the documentation) so we mention them here. 
+
 
 ## Function application
-To call a function in Haskell with arguments, you typically write the function name first and then the parameters
+To call a function in Haskell with arguments, you typically write the function name first and then the parameters. This is similar to most other languages.
 ```
-myFunc :: Integer -> Integer -> Bool
+myFunction :: Integer -> Integer -> Bool
 myFunction a b = a == b
 
 result = myFunction 1 2 -- Notice the pattern <functionName> <arg1> <arg2> ...
 ```
 
-There are a few Haskell functions which break this trend. These are called `infix` functions. You've already seen one: `==`. Others include `>`, `<`, `+`, and most of the other ones you would expect.
+There are a few Haskell functions which break this trend. These are called `infix` functions. You've already seen one: `==`. Others include `>`, `<`, `+`, and most of the other ones you would expect from other languages.
 
+Of course, we can also nest expressions within other expressions
+
+```
+myFunction :: Integer -> Integer -> Bool
+myFunction a b = a == b
+
+result = myFunction (1 + 1) (myOtherFunction 3)
+```
 
 ## Other Haskell details
 If you need to set a variable but never use it, it's best practice to prefix with an `_`.
@@ -117,9 +126,22 @@ x `xor` 3
 ```
 This is a common practice in Haskell code.
 
+## The REPL
+Haskell comes with a REPL (Read-Evaluate-Print Loop) program. The REPL is quite useful as a quick feedback loop on the results of expressions (or if the expression even type checks in the first place).
+
+This book will often present code snippets as they would appear in the REPL. This allows 1. the book to write correct Haskell in shorter programs and 2. the reader to evaluate the expressions and play around with them for learning purposes.
+
+When code is in the REPL, it is preceded by `>>>`. If the expression returns anything, it is printed on the next line.
+
+Repl example:
+```
+>>> 1 + 2
+3
+```
+
 ## Conclusion
 We have only covered the basics of Haskell syntax. However I firmly believe that this basic syntax, plus a few more features we introduce in the next chapters, are the only syntax required to work with Clash.
 
 If you look at Haskell code written by some Haskell users, it can seem like a series of arcane symbols. However, most of these symbols are shorthand for code we could otherwise write using the above syntax. These shorthands are optional and you should only use them if you want to.
 
-Let's go!
+Remember, you can (and should) return to this section as many times as you want. Let's go!

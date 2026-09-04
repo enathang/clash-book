@@ -1,4 +1,5 @@
-# Maybe, Tuple
+# Maybe
+We have so far looked at data types that are numbers. However, we can also define richer data types and Clash can still synthesize them into hardware.
 
 ## Maybe a
 
@@ -35,39 +36,3 @@ clashi> pack (Nothing :: Maybe (BitVector 8))
 When this valid bit is `0`, Clash makes no guarantee what the other bits are. This is represented by `undefined` internally, or a `.` in the output.
 
 `Maybe` is often used in Clash as part of sequential logic, to indicate a value may be present on some cycles but not others. But we will cover sequential logic in a later chapter.
-
-## Tuples
-Tuples are one of the standard Haskell workhorses. Unlike most other types in Haskell, tuples are embedded into the Haskell language itself.
-
-````admonish example
-```
-(a, b)
-(a, b, c)
-(a, b, c, d)
-(a, b, c, d, ...)
-```
-
-**Examples**
-```
->>> let x = (True, False)
->>> let y = (True, 0 :: Unsigned 8)
->>> let z = (3 :: Unsigned 4, (4 :: Signed 4, True))
-```
-````
-
-
-Often times, it's useful to group values together. Since Haskell only allows one return type for a function, tuples are often used when we want to return multiple values from a function.
-
-Example from `Integral` class:
-```
-quotRem :: Bit -> Bit -> (Bit, Bit) 
-```
-
-Tuples are also quite useful because the internal values can be of different types to each other.
-
-Example from `Counter` class:
-```
-countSuccOverflow :: Bit -> (Bool, Bit) 
-```
-
-Tuples can be synthesized in Clash and have no footprint overhead.
