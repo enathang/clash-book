@@ -9,6 +9,7 @@ Luckily, we as a society have developed (and more importantly agree-upon) abstra
 An `Unsigned n` is a representation of an unsigned number using `n` bits.
 
 ````admonish example title="Unsigned"
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Unsigned.html#t:Unsigned" text="See docs" -->
 `data Unsigned (n :: Nat)`
 
 Arbitrary-width unsigned integer represented by n bits.
@@ -147,22 +148,22 @@ We may also want to convert between `Unsigned n` and `BitVector n`. To do this, 
 More examples:
 
 ```
-clashi> let x = minBound :: Unsigned 8   -- From Bounded
-clashi> x
+>>> let x = minBound :: Unsigned 8   -- From Bounded
+>>> x
 0
-clashi> let y = maxBound :: Unsigned 8
-clashi> y
+>>> let y = maxBound :: Unsigned 8
+>>> y
 255
 
-clashi> pack y                           -- From BitPack
+>>> pack y                           -- From BitPack
 0b1111_1111
-clashi> x == y+1                         -- From Eq(==), Num(+)
+>>> x == y+1                         -- From Eq(==), Num(+)
 True
 
-clashi> let z = resize x :: Unsigned 16  -- From Resize
-clashi> z
+>>> let z = resize x :: Unsigned 16  -- From Resize
+>>> z
 255
-clashi> pack z
+>>> pack z
 0b0000_0000_1111_1111
 ```
 
@@ -171,6 +172,7 @@ clashi> pack z
 Clash also supports signed numbers using two's-complement.
 
 ````admonish example title="Signed"
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Signed.html#t:Signed" text="See docs" -->
 `data Signed (n :: Nat)`
 
 Arbitrary-width signed integer represented by `n` bits, including the sign bit.
@@ -275,11 +277,11 @@ Uses standard 2-complements representation. Meaning that, given n bits, a `Signe
 ````
 
 ```
-clashi> let x = 3 :: Signed 8
-clashi> pack x
+>>> let x = 3 :: Signed 8
+>>> pack x
 0b0000_0011
-clashi> let x = -3 :: Signed 8
-clashi> pack x
+>>> let x = -3 :: Signed 8
+>>> pack x
 0b1111_1101
 >>> resize x :: Signed 16
 ```
@@ -289,6 +291,7 @@ clashi> pack x
 While booleans are not numbers, they are core-enough to the language that I wanted to mention them somewhere.
 
 ````admonish example title="Bool"
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Class-BitPack.html#t:BitPack" text="See docs" -->
 `data Bool = False | True`
 
 A boolean.

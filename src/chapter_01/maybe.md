@@ -1,7 +1,9 @@
 # Maybe
-We have so far looked at data types that are numbers. However, we can also define richer data types and Clash can still synthesize them into hardware.
+We have so far looked at data types that are numbers. However, we can define richer data types and Clash can still synthesize them into hardware.
 
 ## Maybe a
+
+We may want to represent a value that _may_ or _may not_ be present.
 
 In Clash, `Maybe a` is often used to represent data that may or may not be present. In hardware, `Maybe a` is represented by `1` bit that can be considered a "valid" or "tag" bit.
 
@@ -32,6 +34,10 @@ clashi> pack (Nothing :: Maybe Bool)
 clashi> pack (Nothing :: Maybe (BitVector 8))
 0b0_...._....
 ```
+
+````admonish quote title="Synthesized output" collapsible=true
+![](img/just-a.svg)
+````
 
 When this valid bit is `0`, Clash makes no guarantee what the other bits are. This is represented by `undefined` internally, or a `.` in the output.
 

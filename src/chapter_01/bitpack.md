@@ -31,7 +31,7 @@ Example:
 0b11
 ```
 
-This function says: given a representation in bits of the same size as a, turn it into a.
+This function says: given a representation in bits of the same size as `a`, turn it into `a`.
 
 ## How BitPack is derived for data types
 
@@ -51,11 +51,9 @@ Which in this case is `log2(3) + max(32, 16, 16+8) = 2 + 32 = 34`
 
 which can be considered
 
-Example:
-```
->>> pack (Just (3 :: BitVector 8))
-0b100000011
-```
+````admonish quote title="Synthesized output" collapsible=true
+![](img/bitpack-generalization.svg)
+````
 
 ## Revisiting `Just`
 Now that we know how Clash generates `BitPack` instances, we can review `Maybe a` and see how Clash automatically encodes this information.

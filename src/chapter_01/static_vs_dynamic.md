@@ -1,6 +1,10 @@
 # Common pitfall: static vs dynamic operations
 
-Pitfall type: your synthesized circuit is a lot larger than it should be.
+
+```admonish bug
+Pitfall symptom(s):
+- Your synthesized circuit is a lot larger than it should be.
+```
 
 **Difference between static and dynamic operations**
 
@@ -37,10 +41,10 @@ myRotateLeft vec r = rotateLeft vec r
 ![Gate-level netlist of a dynamic rotateLeft on a BitVector 8: three stages of eight 2-to-1 multiplexer cells each, one stage per bit of the runtime rotation amount, wired with the corresponding power-of-two rotation and a shared select line fanned out to all eight cells in a stage.](img/rotate-dynamic.svg)
 ```
 
-Note, you can still use a dynamic rotation with a constant
+Note, you can still use a dynamic rotation with a constant value
 
 ```
 rotateLeft vec 3 -- Compiles perfectly fine
 ```
 
-Clash will NOT automatically convert this to a static rotation. However, downstream synthesis tools _may_ detect this and optimize it to a static rotation. When in doubt, it's best to use an explicit static rotation.
+Clash will NOT automatically convert this to a static rotation. However, downstream synthesis tools _may_ detect this and optimize it to a static rotation. The more complicated the logic, the less likely it will be detected. When in doubt, it's best to use an explicit static rotation.

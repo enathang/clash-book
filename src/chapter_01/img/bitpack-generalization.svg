@@ -1,0 +1,51 @@
+<svg viewBox="0 0 500 208" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="How any BitPack-derived type is represented in hardware, generalizing Maybe a: the wires split into a constructor region of clog2(constructor count) wires (2 here, for a 3-constructor type) and a field region of max_field_size wires (32 here, sized to the largest constructor and left undefined for smaller ones). Both are plain wires -- no packing logic.">
+
+  <style>
+    :root { color: #1a1a1a; }
+    @media (prefers-color-scheme: dark) {
+      :root { color: #e6edf3; }
+    }
+  </style>
+
+<g fill="#d97706">
+<circle cx="320" cy="40" r="2.6"/>
+<circle cx="480" cy="40" r="2.6"/>
+<circle cx="320" cy="60" r="2.6"/>
+<circle cx="480" cy="60" r="2.6"/>
+</g>
+<g>
+<line x1="320" y1="40" x2="480" y2="40" stroke="#d97706" stroke-width="1.4" fill="none"/>
+<line x1="320" y1="60" x2="480" y2="60" stroke="#d97706" stroke-width="1.4" fill="none"/>
+</g>
+<g fill="currentColor">
+<circle cx="320" cy="80" r="2.6"/>
+<circle cx="480" cy="80" r="2.6"/>
+<circle cx="320" cy="100" r="2.6"/>
+<circle cx="480" cy="100" r="2.6"/>
+<circle cx="320" cy="168" r="2.6"/>
+<circle cx="480" cy="168" r="2.6"/>
+<circle cx="320" cy="188" r="2.6"/>
+<circle cx="480" cy="188" r="2.6"/>
+</g>
+<g>
+<line x1="320" y1="80" x2="480" y2="80" stroke="currentColor" stroke-width="1.4" fill="none"/>
+<line x1="320" y1="100" x2="480" y2="100" stroke="currentColor" stroke-width="1.4" fill="none"/>
+<line x1="320" y1="168" x2="480" y2="168" stroke="currentColor" stroke-width="1.4" fill="none"/>
+<line x1="320" y1="188" x2="480" y2="188" stroke="currentColor" stroke-width="1.4" fill="none"/>
+</g>
+<g fill="currentColor">
+<circle cx="400.0" cy="128" r="1.6"/>
+<circle cx="400.0" cy="134" r="1.6"/>
+<circle cx="400.0" cy="140" r="1.6"/>
+</g>
+<path d="M 60 40 L 54 40 L 54 188 L 60 188" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<path d="M 250 40 L 244 40 L 244 60 L 250 60" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<path d="M 250 80 L 244 80 L 244 188 L 250 188" stroke="currentColor" stroke-width="1.2" fill="none"/>
+<g font-size="13" fill="currentColor">
+<text x="40" y="118.0" text-anchor="end">MyType</text>
+<text x="230" y="138.0" text-anchor="end">fields</text>
+</g>
+<text x="230" y="54.0" text-anchor="end" font-size="13" fill="#d97706">constructors</text>
+<text x="230" y="67.0" text-anchor="end" font-size="9" fill="#d97706">(clog2(constructor_count))</text>
+<text x="230" y="151.0" text-anchor="end" font-size="9" fill="currentColor">(max_field_size)</text>
+</svg>

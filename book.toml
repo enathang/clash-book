@@ -8,6 +8,10 @@ src = "src"
 additional-css = ["./mdbook-admonish.css", "./mdbook-admonish-custom.css", "./mermaid-custom.css", "./blockquote-custom.css", "./code-highlight.css"]
 additional-js = ["mermaid.min.js", "mermaid-init.js", "admonish-link.js", "code-highlight.js"]
 
+[output.html.fold]
+enable = true
+level = 0
+
 [preprocessor]
 
 [preprocessor.admonish]

@@ -17,15 +17,19 @@ Now this code works perfectly well. It typechecks, compiles, and synthesizes. Ho
 1. change the type signature of the function or
 2. `resize` the `BitVector 8` into a `BitVector 4` before passing it into the function.
 
-However, there's an easier solution to this problem.
+Both are possible. However, there's an easier solution to this problem.
 
 Haskell allows (and encourages) functions to be polymorphic. This is probably one of the biggest mental barriers to writing good Haskell code. Not because it's particularly difficult, but because we're used to reasoning about _concrete things_ and not _abstract things with properties_.
+
+> Polymorphism means "many forms" and describes the ability of a single function, interface, or object to work with different data types or take on different behaviors.
+
+Haskell enables polymorphism in functions through the use of `type variables`.
 
 **Circling back to our example**
 
 Haskell allows us to use `type variables` in our type signatures to abstractly represent types. You can recognize `type variables` because they always start with a lower case character.
 
-In our above example, we can substitute in a generic `n` for the concrete type-level `4`.
+In our above example, we can substitute in a generic type variable `n` for the concrete type-level `4`.
 ```
 isEven :: BitVector n -> Bool
 isEven a = (mod a 2) == 0

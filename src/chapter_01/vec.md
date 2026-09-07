@@ -19,8 +19,8 @@ However, Clash cannot **synthesize** them into hardware.
 
 To take the place of lists, Clash introduces `Vec n a`, which operates similarly to a list but always has a statically defined size.
 
-````admonish example
-data `Vec :: Nat -> Type -> Type` where
+````admonish example title="Vec n a"
+`data Vec :: Nat -> Type -> Type where`
 
 Fixed size vectors.
 
@@ -63,7 +63,7 @@ In the above example, the Haskell typechecker can infer that `intermediate_v` is
 
 **Functions on Vectors**
 
-While normally we'd walk you through some of the common Vector functions, there are enough of them that we will just list them below. There are more functions available than we list, but we cover the ones you will most likely use when starting with Clash. Note that each one has an included example of how they work.
+While normally we'd walk you through some of the common Vector functions, there are enough of them that we will just list them below. There are more functions available than we list, but we cover the ones you will most likely use when starting with Clash. Each function has an example included showing how they work.
 
 ````admonish example title="Creating"
 
@@ -174,7 +174,7 @@ See the [Map, Zip, Fold](./map.md) section
 
 
 ## Tuples
-We may want to work with collections of different types. Tuples are the standard way of doing so.
+We may want to work with collections containing multiple types of elements. Since the type signature of `Vec n a` requires all elements to be of the same type (`a`), we cannot use them. Tuples are the standard way of doing so.
 
 ````admonish example title="Tuples"
 ```
@@ -184,27 +184,65 @@ We may want to work with collections of different types. Tuples are the standard
 (a, b, c, d, ...)
 ```
 
+**Common functions**
+
+<details>
+<summary><code class="language-haskell">pair :: a -> b -> (a, b)</code></summary>
+</details>
+<details>
+<summary><code class="language-haskell">first :: (a, b) -> a</code></summary>
+</details>
+<details>
+<summary><code class="language-haskell">second :: (a, b) -> b</code></summary>
+</details>
+<details>
+<summary><code class="language-haskell">mapFirst :: (a -> x) -> (a, b) -> (x, b)</code></summary>
+</details>
+<details>
+<summary><code class="language-haskell">mapSecond :: (b -> y) -> (a, b) -> (a, y) </code></summary>
+</details>
+
+
 **Examples**
 ```
 >>> let x = (True, False)
 >>> let y = (True, 0 :: Unsigned 8)
->>> let z = (3 :: Unsigned 4, (4 :: Signed 4, True))
+>>> let z = (3 :: Unsigned 4, (4 :: Signed 4, True))   -- We can nest tuples
 ```
 ````
 
 
 Often times, it's useful to group values together. Since Haskell only allows one return type for a function, tuples are often used when we want to return multiple values from a function.
 
-Example from `Integral` class:
+Example type signature from `Integral` typeclass:
 ```
 quotRem :: Bit -> Bit -> (Bit, Bit) 
 ```
 
-Tuples are also quite useful because the internal values can be of different types to each other.
-
-Example from `Counter` class:
+Example type signature from `Counter` typeclass:
 ```
 countSuccOverflow :: Bit -> (Bool, Bit) 
 ```
 
-Tuples can be synthesized in Clash and have no footprint overhead.
+**Synthesis**
+
+Tuples can be synthesized in Clash as long as the internal values are of known size. To see what this looks like, we show an example below
+
+```
+splitVec :: BitVector 8 -> (BitVector 4, BitVector 4)
+splitVec vec = splitAt d4 vec
+
+reverseVec :: BitVector 4 -> BitVector 4
+reverseVec vec = reverse vec
+
+combineVec :: BitVector 4 -> BitVector 4 -> BitVector 8
+combineVec vec1 vec2 = vec1 ++ vec2
+
+myFunction :: BitVector 8 -> BitVector 8
+myFunction vec = combineVec (reverseVec a) b
+ where
+  (a, b) = splitVec vec
+```
+````admonish quote title="Synthesized output" collapsible=true
+![](img/tuple-wires.svg)
+````

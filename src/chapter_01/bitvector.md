@@ -7,7 +7,7 @@ In this section, we introduce the basic building block of every circuit: the `Bi
 A bit is a binary value: a `high (1)` or a `low (0)`.
 
 ````admonish example title="Bit"
-<!-- admonish-link href="https://example.com" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See docs" -->
 `data Bit`
 
 A single bit
@@ -23,13 +23,16 @@ A single bit
 
 Okay, but how do we do things with it?
 
-The type system in Haskell is pretty different to other languages. Without going into too much detail, one important part of any data type is what *type class instances* are defined with it. These define common functions for that data type.
+The type system in Haskell is pretty different to other languages. Without going into too much detail, one important part of any data type is what *type class instances* are defined with it. Type classes define common functions for that data type. They work similarly to Java's `interfaces` or Rust's `traits`.
 
-A general rule of thumb is: when you want to know what something *is*, look at the data type. When you want to know *what you can do with it*, then look at 1. functions that use the type and 2. the type classes it implements.
+A general rule of thumb is: when you want to know what something *is*, look at the data type. When you want to know *what you can do with it*, then look at
+1. library functions that use that type and
+2. the type classes that type implements
 
-So let's look at a few handpicked classes:
+So let's look at a few handpicked classes that Bit implements:
 
 ````admonish example title="Bit typeclasses"
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See docs" -->
 **Notable type classes**
 <details>
 <summary><code>Bits Bit</code></summary>
@@ -112,6 +115,8 @@ So let's look at a few handpicked classes:
 ````
 
 **Examples using type classes**
+
+We can use any of the functions in the type classes above to work with Bits
 ```
 >>> high .&. low      -- From Bits class
 0
@@ -125,24 +130,30 @@ True
 
 We recommend you take a minute and explore some of the type classes.
 
-Of course, we can also define our own functions that use the `Bit` type.
+Of course, we can also define our own functions that use the `Bit` type
 
 ```
-clashi> let f a b c = xor (a .&. b) c
-clashi> f high high high
+>>> let f a b c = xor (a .&. b) c :: Bit -> Bit -> Bit -> Bit
+>>> f high high high
 0
 ```
 **Synthesizing hardware from `Bit`**
 
-Everything we have done so far, including applying functions, is just in Haskell. Remember, Clash code **is** Haskell code. The power of Clash is that we can also translate this code into a hardware description.
+Everything we have done so far, including applying functions, is just in Haskell. Remember, Clash code **is** Haskell code. The power of Clash is that we can also use the Clash compiler to translate this Haskell code into a hardware description.
 
 We call the process of turning Clash code into HDL **synthesis**.
 
-We provide a few examples of Clash code below with their synthesized outputs, and we encourage you to guess before checking your answers.
+We provide a few examples of Clash code below with their synthesized outputs. We encourage you to guess the hardware outputs before checking your answers.
 <details>
-<summary><strong>Example 1</strong></summary>
+<summary><strong>Examples</strong></summary>
 
-Input: `>>> f a = a`
+**Example 1**
+
+Input:
+```
+func :: Bit -> Bit
+func a = a
+```
 
 Output
 ````admonish quote title="Synthesized output" collapsible=true
@@ -154,11 +165,14 @@ flowchart LR
 
 Well, that's not very interesting. The circuit simply passes the input through to the output.
 ````
-</details>
-<details>
-<summary><strong>Example 2</strong></summary>
 
-Input: `let f a b c = xor (a .&. b) c`
+**Example 2**
+
+Input:
+```
+func :: Bit -> Bit -> Bit -> Bit
+func a b c = xor (a .&. b) c
+```
 
 Output
 ````admonish quote title="Synthesized output" collapsible=true
@@ -171,9 +185,8 @@ flowchart LR
     XOR{{"XOR"}} --> out(("s"))
 ```
 ````
-</details>
-<details>
-<summary><strong>Example 3</strong></summary>
+
+**Example 1**
 
 Input:
 ```
@@ -199,6 +212,7 @@ Typically, it's useful to represent a collection of bit together. A `BitVector n
 
 
 ```admonish example title="BitVector"
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:BitVector" text="See docs" -->
 `data BitVector (n :: Nat)`
 
 A vector of `n` bits, where `n` is defined on the type level
