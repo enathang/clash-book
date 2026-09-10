@@ -11,6 +11,10 @@ Map applies a function to each element of a `Vector`. The output type need not b
 </details>
 ````
 
+The Clash Prelude documentation for `map` includes a diagram of the corresponding circuit layout (vendored from the [clash-compiler](https://raw.githubusercontent.com/clash-lang/clash-compiler/master/clash-prelude/doc/map.svg) repo):
+
+![Diagram of map applying a function f to each element x0..xn of a vector](img/map.svg)
+
 **Examples**
 ```
 >>> let x = 3 :> 4 :> 5 :> Nil :: Vec 3 (Unsinged 8)
@@ -33,6 +37,10 @@ There are actually multiple different `zip` functions that are all variation of 
 <summary><code class="language-haskell">zipWith :: (a -> b -> c) -> Vec n a -> Vec n b -> Vec n c </code></summary>
 </details>
 ````
+
+The Clash Prelude documentation for `zipWith` includes a diagram of the corresponding circuit layout (vendored from the [clash-compiler](https://raw.githubusercontent.com/clash-lang/clash-compiler/master/clash-prelude/doc/zipWith.svg) repo):
+
+![Diagram of zipWith applying a function f pairwise to elements (x0,y0)..(xn,yn) of two vectors](img/zipWith.svg)
 
 **Examples**
 ```
@@ -69,6 +77,10 @@ Unlike `Map` and `Zip`, the output of your fold can change based on which direct
 <summary><code class="language-haskell">fold :: forall n a. (a -> a -> a) -> Vec (n + 1) a -> a </code></summary>
 </details>
 ````
+
+The Clash Prelude documentation for `fold` includes a diagram of the corresponding circuit layout (vendored from the [clash-compiler](https://raw.githubusercontent.com/clash-lang/clash-compiler/master/clash-prelude/doc/fold.svg) repo):
+
+![Diagram of fold combining elements of a vector pairwise in a balanced binary tree using a function f](img/fold.svg)
 
 ## Why isn't map/zip/fold defined for tuples as well?
 

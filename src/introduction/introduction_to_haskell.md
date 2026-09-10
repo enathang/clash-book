@@ -27,12 +27,12 @@ However, not everything that begins with a capital letter is a Haskell type. The
 
 **Type annotations**
 
-Haskell type signatures are annotated with `::`
+Haskell type annotations are done with `::`
 ```
 variable = 5 :: Integer
 ```
 
-It is more common to provide a separate type signature above the declaration
+It is more common to provide a separate type signature above the binding
 ```
 variable :: Integer
 variable = 5
@@ -43,7 +43,7 @@ These type signatures can be included in expressions, with parentheses to reduce
 variable = (5 :: Integer) + (6 :: Integer)
 ```
 
-Haskell is strongly typed, meaning it will throw compile-time errors if types do not match
+Haskell is strong and statically typed, meaning it will throw compile-time errors if types do not match
 
 ```
 -- This will not compile, since `5` is of type Integer and `True` is of type Bool
@@ -58,35 +58,49 @@ They have the general structure
 ```
 -- This is the type signature of the function, with
 -- the function declaration below it
-functionName :: Constraint1, ... => InputType1 -> InputType2 -> ... -> OutputType
+functionName :: (Constraint1, ...) => InputType1 -> InputType2 -> ... -> OutputType
 functionName input1 input2 = outputExpression
 ```
 
-Don't worry about `Constraint1` for now. We will cover them in a later chapter.
+_(Note: Don't worry about `Constraint1` for now. We will cover them in a later chapter.)_
 
-**Example**
-
-Here, the function takes two `Integer`s and returns a `Bool`.
+As an example, here is a function that takes two `Integer`s and returns a `Bool`.
 ```
 myFunction :: Integer -> Integer -> Bool
 myFunction a b = a == b
 ```
+
+**Returning multiple values from a function**
 
 Since it's often useful to be able to return multiple things from a function, a function can return a tuple. Since the tuple is only one "thing", Haskell is fine with it, but the tuple can contain multiple things inside it.
 ```
 -- This function still returns one value, but the value
 -- is composed of multiple inner values
 divideAndMod :: Integer -> Integer -> (Integer, Integer)
-divideAndMod a b = (a / b, a % b)
+divideAndMod a b = (div a b, mod a b)
+```
+
+**Creating subexpressions with `where` clauses**
+
+Often, we want to declare intermediary variables and sub-expressions for our computation. We can use Haskell's `where` clause to do so
+
+```
+myFunc :: Bit -> Bit -> Bit -> Bit
+myFunc a b c = e
+ where
+  d = a .|. b
+  e = c .&. d
 ```
 
 **Type variables**
 
 Haskell also allows you to declare type annotations with `type variables`. These are lower case and usually one letter (`a`, `b`, `n`, etc.)
 
-For example, here's a function pulled from Haskell's `List` library
+For example, here's a function type definition pulled from Haskell's `List` library
 
-`reverse :: [a] -> [a]`
+```
+reverse :: [a] -> [a]
+```
 
 This means the function can work over multiple types. We will cover them in a later chapter, but you will see them everywhere in Haskell code (especially the documentation) so we mention them here. 
 
@@ -112,6 +126,9 @@ result = myFunction (1 + 1) (myOtherFunction 3)
 ```
 
 ## Other Haskell details
+
+**Prefix unused variables with `_`**
+
 If you need to set a variable but never use it, it's best practice to prefix with an `_`.
 
 ```
@@ -119,10 +136,12 @@ returnSecondArg :: Integer -> Integer -> Integer
 returnSecondArg _a b = b    -- `_` would also work instead of `_a`
 ```
 
-Functions that take in two parameters can be made infix by surrounding it with `\```
+**Make functions infix with <code>``</code>**
+
+Functions that take in two parameters can be made infix by surrounding it with <code>``</code>.
 ```
 xor 3 3
-x `xor` 3
+3 `xor` 3
 ```
 This is a common practice in Haskell code.
 

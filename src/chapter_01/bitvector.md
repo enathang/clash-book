@@ -208,7 +208,7 @@ This one will not actually compile in Clash.
 In all honesty, while `Bit` is an important data type, you don't end up using it a lot in Clash. This is because you will often work with collections of wires, which is represented in Clash as `BitVector n`.
 
 ## What is a `BitVector n`
-Typically, it's useful to represent a collection of bit together. A `BitVector n` is a vector of `n` bits.
+Typically, it's useful to represent a collection of bits together. A `BitVector n` is a vector of `n` bits.
 
 
 ```admonish example title="BitVector"
@@ -359,7 +359,7 @@ This means that when you declare a type (or Clash infers a type), the size `n` o
       In the expression: x + y
       In an equation for ‘it’: it = x + y
 >>> let resized_y = resize y :: BitVector 8
->>> x + y
+>>> x + resized_y
 7
 ```
 

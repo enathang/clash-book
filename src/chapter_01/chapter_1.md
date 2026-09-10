@@ -1,5 +1,9 @@
 # Chapter 1
 
+It is recommended you download the [Clash starter project](https://github.com/clash-lang/clash-starters), build it, and follow along with this chapter. If you're unsure how to work with a Clash project, check out the [How to run Clash](../introduction/how_to_run_clash.md) section.
+
+**Chapter topics**
+
 In this chapter, we try to build the following intuitions:
 - What it looks like to read and write Clash code
 - When code you write can and cannot be synthesized into hardware by Clash

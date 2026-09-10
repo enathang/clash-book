@@ -1,0 +1,45 @@
+/*
+ * Click-to-switch tabs for a run of fenced code blocks, built by
+ * code-tabs.js from a `<!-- tabs: Label | Label | ... -->` marker.
+ *
+ * Structural chrome uses currentColor (the theme's own text color) so this
+ * looks right in every mdBook theme - light, rust, coal, navy, ayu - without
+ * hardcoding any of them. `--links` is mdBook's own accent-color variable
+ * (used for hyperlinks in every built-in theme), reused here for the one bit
+ * of emphasis on the active tab, with a plain blue fallback if it's ever
+ * unset.
+ */
+.code-tabs {
+  margin: 1em 0;
+}
+.code-tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  border-bottom: 1px solid currentColor;
+  border-bottom-color: rgba(128, 128, 128, 0.35);
+}
+.code-tabs-tab {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.45em 0.9em;
+  font-size: 0.9em;
+  font-family: inherit;
+  color: inherit;
+  opacity: 0.6;
+  cursor: pointer;
+}
+.code-tabs-tab:hover {
+  opacity: 0.9;
+}
+.code-tabs-tab.is-active {
+  opacity: 1;
+  border-bottom-color: var(--links, #4183c4);
+  font-weight: 600;
+}
+.code-tabs-panel pre {
+  margin-top: 0;
+}

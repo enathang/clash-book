@@ -18,7 +18,7 @@ What is the binary representation of the following code?
 
 Note: you can either compute it by hand, or just get `clashi` up and running.
 '''
-answer.answer = "Ord"
+answer.answer = "0"
 id = "e98f8086-f12c-4d5c-b0ba-bcf502d4fcac"
 
 
