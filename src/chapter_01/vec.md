@@ -4,7 +4,7 @@ We often want to work with collections of things. Clash offers two main ways to 
 
 When deciding whether to use `Vec` or tuple:
 * If the collection needs to be of multiple types, use a tuple
-* Otherwise, use a `Vec` as they tend to be easier to work with
+* Otherwise, use a `Vec`, as they tend to be easier to work with
 
 ## Vec n a
 Haskell programs often use Lists to represent ordered collections of elements. However, Lists are dynamically-sized and unknown size at compile time. They can even be infinite size in Haskell!
@@ -15,7 +15,7 @@ Clash datatypes, since they're just Haskell data types, work perfectly fine with
 >>> let x = [3, 4, 5] :: [BitVector 8]    -- This is a list
 ```
 
-However, Clash cannot **synthesize** them into hardware.
+This property is useful for writing tests. However, Clash cannot **synthesize** them into hardware.
 
 To take the place of lists, Clash introduces `Vec n a`, which operates similarly to a list but always has a statically defined size.
 

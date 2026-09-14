@@ -7,7 +7,7 @@ In this section, we introduce the basic building block of every circuit: the `Bi
 A bit is a binary value: a `high (1)` or a `low (0)`.
 
 ````admonish example title="Bit"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See doc on Hackage >" -->
 `data Bit`
 
 A single bit
@@ -32,7 +32,7 @@ A general rule of thumb is: when you want to know what something *is*, look at t
 So let's look at a few handpicked classes that Bit implements:
 
 ````admonish example title="Bit typeclasses"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See doc on Hackage >" -->
 **Notable type classes**
 <details>
 <summary><code>Bits Bit</code></summary>
@@ -145,9 +145,7 @@ We call the process of turning Clash code into HDL **synthesis**.
 
 We provide a few examples of Clash code below with their synthesized outputs. We encourage you to guess the hardware outputs before checking your answers.
 <details>
-<summary><strong>Examples</strong></summary>
-
-**Example 1**
+<summary><strong>Example 1</strong></summary>
 
 Input:
 ```
@@ -165,8 +163,10 @@ flowchart LR
 
 Well, that's not very interesting. The circuit simply passes the input through to the output.
 ````
+</details>
 
-**Example 2**
+<details>
+<summary><strong>Example 2</strong></summary>
 
 Input:
 ```
@@ -185,8 +185,10 @@ flowchart LR
     XOR{{"XOR"}} --> out(("s"))
 ```
 ````
+</details>
 
-**Example 1**
+<details>
+<summary><strong>Example 3</strong></summary>
 
 Input:
 ```
@@ -212,7 +214,7 @@ Typically, it's useful to represent a collection of bits together. A `BitVector 
 
 
 ```admonish example title="BitVector"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:BitVector" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:BitVector" text="See doc on Hackage >" -->
 `data BitVector (n :: Nat)`
 
 A vector of `n` bits, where `n` is defined on the type level

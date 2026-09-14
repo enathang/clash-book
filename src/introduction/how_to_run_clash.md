@@ -4,7 +4,7 @@ We provide a number of examples of Clash code and the synthesized output in this
 
 ## Setting up Clash
 
-That being said, Haskell (and by extension Clash) has a number of setup configuration options that may confuse new users. To work around this, the Clash team offers a "getting started" repository with sensible defaults.
+That being said, Haskell (and by extension Clash) has a number of setup configuration options that may confuse new users. To work around this, the Clash team offers a [getting started](https://github.com/clash-lang/clash-starters) repository with sensible defaults.
 
 ## Running Clash
 

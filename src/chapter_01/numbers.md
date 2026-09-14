@@ -1,6 +1,6 @@
 # Unsigned, Signed, Bool
 
-We often want to work with data not as raw bits but as numbers. This is true in hardware and software.
+We often want to work with data as numbers, not as raw bits. This is true in both hardware and software.
 
 Luckily, we as a society have developed (and more importantly agree-upon) abstractions to allow us to work with numbers and let the compiler handle translating them into bits. Clash provides a handful of popular options out of the box, and allows the user to define more if they wish. We will look at two of the most popular in this section: `Unsigned n` and `Signed n`.
 
@@ -9,7 +9,7 @@ Luckily, we as a society have developed (and more importantly agree-upon) abstra
 An `Unsigned n` is a representation of an unsigned number using `n` bits.
 
 ````admonish example title="Unsigned"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Unsigned.html#t:Unsigned" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Unsigned.html#t:Unsigned" text="See doc on Hackage >" -->
 `data Unsigned (n :: Nat)`
 
 Arbitrary-width unsigned integer represented by n bits.
@@ -113,7 +113,7 @@ Given n bits, an `Unsigned n` number has a range of: `[0 .. 2^n-1]`.
 ````
 As you can see in the last two examples above, overflows and underflows are allowed. If you don't want to allow overflows and underflows, you can use the `abc` type, which we will cover in a later chapter.
 
-We can also perform math on `Unsigned` exactly as we would expect
+We can perform math on `Unsigned n`, as long as the types are the same size (have the same `n`)
 ```
 >>> (3 :: Unsigned 8) + (4 :: Unsigned 8)
 7
@@ -122,30 +122,31 @@ We can also perform math on `Unsigned` exactly as we would expect
 4
 ```
 
-We may want to convert between `Unsigned n` of different sizes. We can use the `resize` function of the `Resize` class for this
+We may want to convert between `Unsigned n` of different sizes. We can use the `resize` function of the `Resize` class. Resizing will either zero-extend the value or truncate the bits from the left side.
 
 ```
 >>> let y = 3 :: Unsigned 4
 3
->>> (resize y) :: Unsigned 4
+>>> (resize y) :: Unsigned 8
 3
 ```
+
 
 We may also want to convert between `Unsigned n` and `BitVector n`. To do this, we introduce and use a new typeclass called `BitPack`, which exposes a `pack` and `unpack` function
 
 ```
 >>> 3 :: Unsigned 4
 3
->>> pack (3 :: Unsigned 4)
+>>> pack (3 :: Unsigned 4)    -- Pack: convert to BitVector
 0b0011
 
 >>> 5 :: BitVector 4
 0b0101
->>> unpack (5 :: BitVector 4) :: Unsigned 4
+>>> unpack (5 :: BitVector 4) :: Unsigned 4     -- Unpack: convert from BitVector
 5
 ```
 
-More examples:
+Here are a few more examples of `Unsigned n`, using functions from various typeclasses:
 
 ```
 >>> let x = minBound :: Unsigned 8   -- From Bounded
@@ -167,12 +168,14 @@ True
 0b0000_0000_1111_1111
 ```
 
+`Unsigned n`, much like `BitVector n`, is one of the most common types in Clash. Typically, when you need to represent a value as a number, you should default to `Unsigned n` unless you have a good reason not to. Such as needing negative values, for example.
+
 ## Signed
 
 Clash also supports signed numbers using two's-complement.
 
 ````admonish example title="Signed"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Signed.html#t:Signed" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Signed.html#t:Signed" text="See doc on Hackage >" -->
 `data Signed (n :: Nat)`
 
 Arbitrary-width signed integer represented by `n` bits, including the sign bit.
@@ -276,6 +279,8 @@ Uses standard 2-complements representation. Meaning that, given n bits, a `Signe
 </details>
 ````
 
+Signed numbers operate similar to unsigned numbers, so we can use many of the same function. We can also define negative numbers:
+
 ```
 >>> let x = 3 :: Signed 8
 >>> pack x
@@ -286,12 +291,14 @@ Uses standard 2-complements representation. Meaning that, given n bits, a `Signe
 >>> resize x :: Signed 16
 ```
 
+We won't speak too much about signed numbers, since they are similar to `Unsigned n`, which we have already covered.
+
 
 ## Bool
 While booleans are not numbers, they are core-enough to the language that I wanted to mention them somewhere.
 
 ````admonish example title="Bool"
-<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Class-BitPack.html#t:BitPack" text="See docs" -->
+<!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Class-BitPack.html#t:BitPack" text="See doc on Hackage >" -->
 `data Bool = False | True`
 
 A boolean.
@@ -359,3 +366,5 @@ False
 + <code>min :: Bool -> Bool -> Bool</code>
 </details>
 ````
+
+Booleans and `bit` are represented similarly in synthesized hardware. However, they should not be used interchangeably. Many functions explicitly accept and operate on only one or the other. For example, `(==)` always returns a `Bool`, while `testBit` accepts a `Bit` and returns a `Bool`.
