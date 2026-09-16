@@ -111,7 +111,8 @@ Given n bits, an `Unsigned n` number has a range of: `[0 .. 2^n-1]`.
 + <code>min :: Unsigned n -> Unsigned n -> Unsigned n</code>
 </details>
 ````
-As you can see in the last two examples above, overflows and underflows are allowed. If you don't want to allow overflows and underflows, you can use the `abc` type, which we will cover in a later chapter.
+
+As you can see in the last two examples above, overflows and underflows are allowed. If you don't want to allow overflows and underflows, you can use the `SaturatingNum` type, which we will cover in a later chapter.
 
 We can perform math on `Unsigned n`, as long as the types are the same size (have the same `n`)
 ```

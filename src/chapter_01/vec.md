@@ -63,7 +63,7 @@ In the above example, the Haskell typechecker can infer that `intermediate_v` is
 
 **Functions on Vectors**
 
-While normally we'd walk you through some of the common Vector functions, there are enough of them that we will just list them below. There are more functions available than we list, but we cover the ones you will most likely use when starting with Clash. Each function has an example included showing how they work.
+While normally we'd walk you through some of the common `Vec` functions, there are enough of them that we will just list them below. There are more functions available than we list, but we cover the ones you will most likely use when starting with Clash. Each function has an example included showing how they work.
 
 ````admonish example title="Creating"
 
@@ -174,7 +174,7 @@ See the [Map, Zip, Fold](./map.md) section
 
 
 ## Tuples
-We may want to work with collections containing multiple types of elements. Since the type signature of `Vec n a` requires all elements to be of the same type (`a`), we cannot use them. Tuples are the standard way of doing so.
+We may want to work with collections containing multiple types of elements. Since the type signature of `Vec n a` requires all elements to be of the same type (`a`), we cannot use them. Tuples are the standard way of solving this problem.
 
 ````admonish example title="Tuples"
 ```
@@ -226,7 +226,7 @@ countSuccOverflow :: Bit -> (Bool, Bit)
 
 **Synthesis**
 
-Tuples can be synthesized in Clash as long as the internal values are of known size. To see what this looks like, we show an example below
+Tuples can be synthesized in Clash as long as the internal types are statically sized. To see what this looks like, we show an example below
 
 ```
 splitVec :: BitVector 8 -> (BitVector 4, BitVector 4)
