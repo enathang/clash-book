@@ -5,7 +5,7 @@ Pitfall symptom(s):
 - Your synthesized circuit is a lot larger than it should be.
 ```
 
-If you come from the software world (as I did), you instinctively believe that all basic math operations are roughly equal. Each operation takes one clock cycle in the CPU. In hardware, this is quite far from the truth (in a number of ways).
+If you come from the software world (as I did), you may instinctively believe that all basic math operations are roughly equal. Each operation takes one clock cycle in the CPU. In hardware, this is quite far from the truth (in a number of ways).
 
 Though these symbols (`+`, `-`, `*`, `/`, `%`, `^`) all take up one character on our screen, in hardware they generate vastly different size circuits (and can scale widely depending on the input sizes).
 

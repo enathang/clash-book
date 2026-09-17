@@ -212,7 +212,7 @@ A FIR (Finite Inpulse Response) filter is a filter that de-noises input. The out
 
 ![](https://wirelesspi.com/wp-content/uploads/2016/08/figure-introduction-fir-filter.png)
 
-_Image courtesy of wirelesspi_
+_(Image courtesy of wirelesspi)_
 
 Since we have not yet covered sequential logic (and thus have no concept of clock cycles), we show a simplified version of the filter where all inputs come in on the same cycle. We will revisit this example in a later chapter.
 
@@ -228,7 +228,7 @@ firFilter inputs = weightedSum
   weightedSum = fold (+) (zipWith (*) weights (map resize inputs))
 ```
 
-The above function contains few type signatures. Once you get used to Haskell, and you build up an intuition of what the type checker will and will not infer, you can omit many of the types (but not all!). However, for a beginner, we recommend adding redundant type annotations. See our section [Pitfall: Not adding enough type annotations](./adding_type_annotations.md) for more information.
+The above function contains few type signatures. Once you get used to Haskell, and you build up an intuition of what the type checker will and will not infer, you can omit many (but not all!) of the type signatures. However, for a beginner, we recommend adding redundant type annotations. See our section [Pitfall: Not adding enough type annotations](./adding_type_annotations.md) for more information.
 
 Here's the same example with more type information:
 
