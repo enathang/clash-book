@@ -248,6 +248,50 @@ firFilter inputs = weightedSum
 
 Of course, the fun doesn't stop there. For a (much) more complex example of what you can use higher-order functions for, you can take a look at the [Clash systolic array](https://clash-lang.org/blog/2018-07-25-systolic-arrays/) blog post. This example shows the abstraction power of separating your computation structure from the computation being done.
 
+````admonish quote title="Exercise: SAD filter"
+<details>
+<summary><bold>Exercise 1</bold></summary>
+
+Write a function that takes in a vector and target and return the SAD (sum of absolute difference) between the two vectors
+
+<!-- tabs: Function definition | Test cases -->
+```description
+similarity ::
+  Vec 4 (BitVector 3) ->
+  Vec 4 (BitVector 3) ->
+  BitVector 4
+similarity target inputVec = undefined -- Fill me in!
+```
+```Haskell
+testcase
+```
+
+</details>
+<details>
+<summary><bold>Exercise 2</bold></summary>
+
+Write a function that, given an input vector vector of target vectors, outputs the target vector that is most similar to the input vector. You can use your implementation of `similarity` from Exercise 1 for this.
+
+<!-- tabs: Function definition | Test cases -->
+```description
+mostSimilar ::
+  Vec 4 (Vec 4 (BitVector 3)) ->
+  Vec 4 (BitVector 3) ->
+  Vec 4 (BitVector 3)
+similarity targets inputVec = undefined -- Fill me in!
+```
+```Haskell
+testcase
+```
+
+</details>
+<details>
+<summary>Read after finishing</summary>
+Congrats! You just wrote a color filter. 
+</details>
+
+````
+
 ## Why isn't map/zip/fold defined for tuples as well?
 
 Despite tuples, like vecs, being designed to hold multiple values, map/zip/fold are defined only for vecs. Why?

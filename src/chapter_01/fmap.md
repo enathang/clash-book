@@ -101,7 +101,7 @@ The name functor comes Category Theory, which is a branch of mathematics that ha
 
 Readers sometimes get hung up on what a functor _is_. It's one of those terms that is so abstract it seems to lose meaning. I would encourage you to simply think of a functor as _anything that implements a fmap function_.
 
-This is a generally useful way of conceptualizing typeclasses in Haskell. An `Eq` is anything that implements the `(==)` function, an `Ord` is anything that implements the `>` function, etc. This way, typeclasses are not things but simply properties that a data type may or may not have.
+This is a generally useful way of conceptualizing typeclasses in Haskell. An `Eq` is anything that implements the `(==)` function, an `Ord` is anything that implements the `>` function, etc. This way, typeclasses are not things but simply properties that a data type may or may not implement.
 
 ## Where would I use fmap?
 The short answer: pretty much everywhere.

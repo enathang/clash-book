@@ -1,1 +1,3 @@
 # Basic higher-order functions
+
+So far, we have seen how Clash instantiates data types and creates circuits out of functions. However, this is a pretty low-level way of writing a circuit: we are still placing every operation ourselves. Haskell has higher-order functions, which are functions that describe how other functions are applied to data. This allows us to raise the level of abstraction that we write our logic, while still retaining a strong control of the exact description of our synthesized hardware.
