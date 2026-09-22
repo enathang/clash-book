@@ -19,6 +19,7 @@
   - [Basic Haskell grammar](./chapter_01/basic_grammar.md)
     - [Pattern matching](./chapter_01/pattern_match.md)
     - [Inline lambdas](./chapter_01/inline_lambdas.md)
+    - [Guards](./chapter_01/guards.md)
   - [Common pitfalls](./chapter_01/pitfalls.md)
     - [Combinational loop](./chapter_01/combinational_loop.md)
     - [Not adding type annotations](./chapter_01/adding_type_annotations.md)

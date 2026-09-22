@@ -20,6 +20,6 @@ where `\` is used by Haskell because it looks similar to the lambda symbol.
 **Examples**
 ```
 map (\x -> x+1) vec
-map (\x y -> x+y)
+zipWith (\x y -> x+y)
 map (\(x, y) -> x+y)   -- You can also use pattern matching in a lambda
 ```

@@ -3,6 +3,7 @@
 ```admonish bug
 Pitfall symptom(s):
 - Your synthesized circuit is a lot larger than it should be.
+- A small addition/change in the design results in a drastically larger output circuit.
 ```
 
 If you come from the software world (as I did), you may instinctively believe that all basic math operations are roughly equal. Each operation takes one clock cycle in the CPU. In hardware, this is quite far from the truth (in a number of ways).
@@ -11,7 +12,7 @@ Though these symbols (`+`, `-`, `*`, `/`, `%`, `^`) all take up one character on
 
 **Example: Addition, Subtraction**
 
-Addition and subtraction are two of the most efficient operations in hardware. In fact, I would argue that a large reason we landed on the binary encoding of numbers that we did was because it made addition and subtraction so efficient in hardware.
+Addition and subtraction are two of the most efficient operations in hardware. In fact, I would argue that a large reason we landed on the binary encoding of numbers that we did is because it made addition and subtraction so efficient in hardware.
 
 
 **Example: Multiplication, Division**
@@ -29,3 +30,5 @@ Don't even get me started.
 Take heart, all hope is not lost! Over time, you'll build up a natural instinct for mapping operations to their hardware output.
 
 In the mean time, I would recommend focusing on making the feedback loop as small as possible. Write a small circuit, synthesize the output, and see the resource usage. Then modify it slightly and re-synthesize it. The longer you go in-between generating the output, the more likely you'll have introduced something without realizing the implications, and will have to track it down.
+
+You can also track it down by using the `opaque` pragma, but that's a technique we will cover in a later chapter.
