@@ -1,10 +1,10 @@
-# Crash course on Haskell syntax
+# Crash course in Haskell syntax
 
 This book uses Haskell syntax from the beginning. It attempts to start with only basic Haskell syntax, and introduce more advanced Haskell syntax throughout the chapters.
 
 This section provides a basic overview of how to read Haskell syntax. The reader is not expected to memorize this section before moving on. This section is more of a cheat sheet for the reader to come back to and reference until they become familiar with Haskell syntax.
 
-## Haskell variables
+## Haskell comments and variables
 
 ```
 -- This is a comment

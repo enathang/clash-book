@@ -1,0 +1,33 @@
+/* Click-to-zoom for book images (no external dependency) */
+
+.content img {
+    cursor: zoom-in;
+}
+
+.image-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    cursor: zoom-out;
+}
+
+.image-zoom-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.image-zoom-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    cursor: zoom-out;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    background: var(--bg);
+    border-radius: 4px;
+}
