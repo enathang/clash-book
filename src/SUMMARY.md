@@ -5,7 +5,7 @@
   - [Prerequisite knowledge](./introduction/prerequisites.md)
     - [What is an HDL?](./introduction/what_is_an_hdl.md)
     - [Crash course in Haskell syntax](./introduction/introduction_to_haskell.md)
-    - [Crash course in Cabal](./introduction/introduction_to_cabal.md)
+    - [Crash course in Cabal and Hackage](./introduction/introduction_to_cabal.md)
     - [How to run Clash](./introduction/how_to_run_clash.md)
 - [Chapter 1: Writing basic circuits](./chapter_01/chapter_1.md)
   - [Basic data types](./chapter_01/intro.md)

@@ -1,0 +1,19 @@
+/* Hanging indent: when a sidebar chapter title wraps, align the
+   wrapped lines exactly under the title text (not the number prefix),
+   regardless of how wide that number prefix is. Pairs with
+   sidebar-title-indent.js, which wraps each title's text in a span
+   so it can be laid out as its own flex item. */
+.chapter li.chapter-item > a:not(.toggle) {
+    display: flex;
+    align-items: flex-start;
+}
+
+.chapter li.chapter-item > a:not(.toggle) > strong {
+    flex: none;
+    white-space: nowrap;
+}
+
+.chapter li.chapter-item > a:not(.toggle) > .chapter-title-text {
+    flex: 1 1 auto;
+    margin-inline-start: 0.3em;
+}
