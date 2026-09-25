@@ -1,9 +1,11 @@
-// Turns a run of fenced code blocks into a click-to-switch tabbed panel.
+// Turns a run of sibling elements into a click-to-switch tabbed panel.
 //
-// Usage: put a marker comment right before the code blocks you want
-// grouped, with one `|`-separated label per block (the blocks must
+// Usage: put a marker comment right before the elements you want
+// grouped, with one `|`-separated label per element (the elements must
 // appear immediately after the marker, one per label, in order, with
-// nothing else in between):
+// nothing but whitespace in between). The elements can be anything -
+// fenced code blocks, `<details>`, paragraphs, whatever markdown or raw
+// HTML produced:
 //
 //   <!-- tabs: Clash | VHDL | Verilog | SystemVerilog -->
 //   ```haskell
@@ -19,11 +21,15 @@
 //   ...
 //   ```
 //
+//   <!-- tabs: Package | Test suite -->
+//   <details><summary>Package</summary>...</details>
+//   <details><summary>Test suite</summary>...</details>
+//
 // mdBook's own highlight.js pass (in book.js) already ran by the time this
 // script executes (it's loaded after book.js in book.toml's additional-js
-// list), so each block keeps whatever syntax highlighting it already got -
-// this script only rearranges the already-rendered `<pre>` elements, it
-// doesn't touch their contents.
+// list), so a code block keeps whatever syntax highlighting it already got -
+// this script only rearranges already-rendered elements, it doesn't touch
+// their contents.
 (function () {
   function findMarkers(root) {
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_COMMENT);
@@ -46,12 +52,10 @@
     var cursor = marker.node.nextSibling;
     while (panels.length < marker.labels.length && cursor) {
       var next = cursor.nextSibling;
-      if (cursor.nodeType === 1 && cursor.tagName === 'PRE') {
+      if (cursor.nodeType === 1) {
+        // any element counts as a panel - could be a <pre>, a <details>,
+        // a <p>, whatever the marker's content happens to be
         panels.push(cursor);
-      } else if (cursor.nodeType === 1) {
-        // hit something that isn't a code block - the markup doesn't match
-        // what this marker expects, so bail out rather than guess
-        break;
       }
       cursor = next;
     }
@@ -73,11 +77,11 @@
       var panelHost = document.createElement('div');
       panelHost.className = 'code-tabs-panels';
 
-      panels.forEach(function (pre, i) {
+      panels.forEach(function (el, i) {
         var panel = document.createElement('div');
         panel.className = 'code-tabs-panel';
         panel.hidden = i !== 0;
-        panel.appendChild(pre);
+        panel.appendChild(el);
         panelHost.appendChild(panel);
 
         var btn = document.createElement('button');

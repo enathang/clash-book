@@ -33,5 +33,6 @@
     - [Type application](./chapter_02/type_application.md)
 - [Chapter 3: Sequential logic](./chapter_03/intro.md)
 - [Appendix](./appendix/appendix.md)
+  - [Clash FAQs](./appendix/faq.md)
   - [How typeclasses work](./appendix/typeclasses.md)
-  - [Show me the code: Clash examples](./appendix/clash_examples.mda)
+  - [Show me the code: Clash examples](./appendix/clash_examples.md)

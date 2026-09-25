@@ -2,6 +2,10 @@
 
 A HDL (Hardware Description Language) is a language that describes how circuits exist and compose together. Broadly, it describes a graph of hardware components.
 
+```admonish warning
+If you come from the software world, you are used to languages creating graphs of execution that execute over _time_. In hardware, the graphs of execution we create will execute over _space_ (and technically still over time, but in a very different way from software).
+```
+
 To help build an intuition, here's an example of a circuit graph
 
 ![](img/register-graph.svg)
