@@ -1,4 +1,4 @@
-# Chapter 1
+# Chapter 1: Writing basic circuits
 
 It is recommended you download the [Clash starter project](https://github.com/clash-lang/clash-starters), build it, and follow along with this chapter. If you're unsure how to work with a Clash project, check out the [How to run Clash](../introduction/how_to_run_clash.md) section.
 

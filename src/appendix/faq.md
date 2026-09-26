@@ -22,14 +22,28 @@ Clash is simply one of the options. Personally, I think Clash has some nice feat
 **Answer:**
 It doesn't have to be Haskell. I would say you want the following properties in an HDL:
 - strong typing: so that mismatches of data types are caught at compile time rather than silently inserted
-- some mechanisms of abstraction: to be able to write circuits using higher layers of abstraction. Popular options include higher-order functions and generic types, but they can be anything.
+- some mechanisms for abstraction: to be able to write circuits using higher layers of abstraction. Popular options include generic types and higher-order functions, but they can be anything.
 - first class support with a popular language: this makes writing tests for your HDL and debugging much easier
-- A simpler language: All things being equal, simplicity is good.
+- be simple(ish): All things being equal, simplicity is good.
 - Language constructs users are already familiar with.
 
 Haskell fits this bill. It is also a suprisingly old language (~30 years), so the language features have stood the test of time. Of course, other options exist. Chisel is based in Scala and Spare is inspired by Rust. But we think Haskell turns out to be a pretty natural fit as an HDL.
 
 You have the rest of the book to decide if you agree.
+
+</details>
+
+<details>
+<summary><strong>Question:</strong> What is the relationship between Clash and Haskell?</summary>
+
+**Answer:** To fill in later.
+
+</details>
+
+<details>
+<summary><strong>Question:</strong> What is the relationship between Clash and Bluespec/Lava?</summary>
+
+**Answer:** To fill in later.
 
 </details>
 

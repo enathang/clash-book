@@ -1,4 +1,4 @@
-# What is a HDL
+# What is a HDL?
 
 A HDL (Hardware Description Language) is a language that describes how circuits exist and compose together. Broadly, it describes a graph of hardware components.
 
