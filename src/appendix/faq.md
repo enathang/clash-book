@@ -1,5 +1,7 @@
 # Clash FAQs
 
+See also the official Clash [FAQs](https://docs.clash-lang.org/compiler-user-guide/general/faqs.html).
+
 **Clash General FAQs**
 
 <details>
@@ -60,6 +62,20 @@ I'd also refer you to [this response](../introduction/introduction_to_clash.md) 
 **Short answer:** All are Haskell related. Bluespec does HLS, Clash does not. Lava is an embedded language within Haskell, Clash directly translates Haskell.
 
 **Long answer:** To fill in later.
+
+</details>
+<details>
+<summary><strong>Question:</strong> Is Clash interoperable with Verilog/VHDL?</summary>
+
+**Short answer:** Yes.
+
+**Long answer:** There are a few different ways to have Clash interoperate with Verilog/VHDL. Each has various levels of convenience and official support.
+
+The easiest is to simply compile your Clash code into Verilog/VHDL and then link everything together. This allows you to use Clash code within a Verilog/VHDL project.
+
+Clash also supports embedding Verilog/VHDL code within a Clash project using a Clash "blackbox". We will cover this feature in a later chapter.
+
+The third option, specific to simulation, is cosimulation. Icarus Verilog can be used to cosimulate Clash and Verilog code. However, this path is not actively maintained. There be dragons here.
 
 </details>
 
@@ -203,3 +219,4 @@ The easiest rule-of-thumb for whether a language uses HLS is "do I have to place
 Clash requires you to place all the registers youself and therefore does not do HLS.
 
 </details>
+

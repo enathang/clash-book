@@ -1,20 +1,18 @@
 # What is a HDL?
 
-A HDL (Hardware Description Language) is a language that describes how circuits exist and compose together. Broadly, it describes a graph of hardware components.
+A HDL (Hardware Description Language) is a language that describes how digital circuits exist and compose together.
 
-```admonish warning
-If you come from the software world, you are used to languages creating graphs of execution that execute over _time_. In hardware, the graphs of execution we create will execute over _space_ (and technically still over time, but in a very different way from software).
-```
+If you come from the software world, you are used to languages creating graphs of execution that execute over _time_. In hardware, the graphs of execution we create will execute over _space_ (and the time it takes electricity to propagate through this space). A HDL formalizes how we describe these graphs.
 
-To help build an intuition, here's an example of a circuit graph
+To help build a visual intuition, here's an example circuit graph
 
 ![](img/register-graph.svg)
 
 _(Note: This circuit graph is a puzzle! See if you can find a set of inputs that causes `success` to go high.)_
 
-Unlike software, these hardware graphs are inherently parallel. This means we need different ways of expressing logic than in software.
+Unlike software, these hardware graphs are inherently parallel. For example, the operations between `a,b`, `c,d`, and `a,d` all happen simultaneously. This means hardware needs different language constructs than software.
 
-A HDL formalizes how we describe these graphs.
+**HDL examples**
 
 Here is the above diagram as written in different HDLs. The first two languages, Verilog and VHDL, are the standard languages for the chip design industry. The third language, Clash, is the subject of this book. The fourth language, Chisel, is another new HDL that has seen reasonable adoption in the industry, including by companies such as SiFive.
 
@@ -143,13 +141,23 @@ class MyFunc extends Module {
 }
 ```
 
+**The modern state of HDLs**
+
+HDLs are used to design all of the modern digital processors. Every chip you use was designed with a HDL. However, the economics of designing a hardware device are quite different to the economics of software.
+
+The design and testing of hardware is decoupled from the widespread deployment of the hardware. This means once companies conclude their testing phase, they will spend millions (if not more) of dollars to harden this design into hardware. If a bug is later found after widespread deployment, the company will have to spend additional millions to correct the issue and re-produce new chips.
+
+Therefore, hardware companies tend to be conservative in their adoption of new tools. Any new surface area in the pipeline introduces the possibility of bugs. Companies stick to the industry-standard languages: Verilog, SystemVerilog, and VHDL. I'd recommend the following [Asianometry video](https://www.youtube.com/watch?v=AUm08ZUD63Q) on the history (and accidental creation) of HDLs.
+
+However, there are also a few economic forces that are causing new HDLs to be explored. We list two forces below: FPGAs and verification costs.
+
+- FPGAs (field-programmable gate arrays) are chips that emulate hardware and are able to be re-programmed at any time. They are less efficient than a corresponding design in hardware, roughly doubling the size and energy usage, but are adjustable after deployment. FPGAs change the cost-benefit tradeoff of hardware design: bugs are less costly because they can be corrected after deployment. They are also cheaper than chips for small batches. Thus, FPGAs are typically good first adopters for new HDLs. As the language gets more users, it becomes more stable, safe, and a better candidate for chip design.
+
+- Verification costs are the monetary cost (in terms of employee time and resources) to verify the chip design does what you want it to do. A large portion (1/3 or higher) of a chips total budget is typically verification cost. A design written is a higher-level language can often be more easy to verify logical correctness, reducing cost and speeding up time to market.
+
+
 **Conclusion**
 
-There are MANY more things to say about HDLs. Topics include:
-* HDL vs HLS
-* RTL and other layers of abstraction
-* The history of functional languages in HDLs (and other approaches)
-
-We defer those topics to later sections in the book. In the meantime, I'd recommend the following [Asianometry video](https://www.youtube.com/watch?v=AUm08ZUD63Q) on the history of (the accidental creation of) HDLs.
+There are MANY more things to say about HDLs. We defer those topics to later sections in the book (or to another book entirely).
 
 Onwards!

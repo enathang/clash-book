@@ -1,6 +1,6 @@
 [book]
-title = "Clash Book"
-authors = ["Nathan"]
+title = "A Gentle Introduction to Clash"
+authors = ["Nathan Gifford"]
 language = "en"
 src = "src"
 
