@@ -1,22 +1,37 @@
 # How to set up and run Clash
 
-We provide a number of examples of Clash code and the synthesized output in this book. However, nothing beats the feedback loop of the reader modifying some of the examples (or coming up with entirely new ones) and seeing the change in type-checking/compilation/synthesis themselves. A worker should never be afraid of their tools - they're there to help.
+We provide a number of examples of Clash code and the synthesized output in this book. However, nothing beats the feedback loop of the reader modifying some of the examples (or coming up with entirely new ones) and seeing the change in type-checking/compilation/synthesis themselves.
 
-## Setting up Clash
+## Where Clash fits in the hardware pipeline
 
-That being said, Haskell (and by extension Clash) has a number of setup configuration options that may confuse new users. To work around this, the Clash team offers a [getting started](https://github.com/clash-lang/clash-starters) repository with sensible defaults.
+There are two main end targets for a Clash (or any other hardware) design: FPGA or ASIC. We will focus on FPGAs throughout this book. FPGAs are cheaper, easier, and faster deployment targets than ASICs. Clash works equally well for ASICs, but we pick one pipeline for simplicity.
 
 **The Clash to FPGA pipeline**
 
 ![](img/flash-fpga-test0.svg)
 
-## Compiling with Clash
+## Setting up the Clash compiler
 
-The Clash compiler is a binary executable. You can run Clash two ways
-- Download a specific version and execute it (easier to get started)
-    - `clash <module> <flags>`
-- Build a local, per-project clash executable and run it (recommended in the long run)
-    - `cabal run clash <module> -- <flags>`
+The Clash compiler is a binary executable that takes in Clash code and outputs Verilog/VHDL code. You can either download a pre-built Clash binary or build one from source.
+
+There are two ways of setting up Clash:
+- (Beginner) Globally (by updating `PATH`) and then invoke as a regular binary
+    - Pros: Easier to get started
+    - Cons: You can only have one version of Clash at a time. If you want to compile multiple projects with different Clash versions, too bad.
+    - Example invocation: `clash <module> <flags>`
+- (Advanced) Build Clash from source as a target within your Clash project
+    - Pros: Ensures each project uses a Clash executable compiled with the same version as your code
+    - Cons: Uses more storage on your computer
+    - Example invocation: `cabal run clash <module> -- <flags>`
+
+The Clash starter project (which we discuss next) uses the second option. Since this option is already set up for you, you simply need to run the invocation `cabal run clash <module> -- <flags>` inside the project.
+
+## Setting up a Clash project
+
+Haskell (and by extension Clash) has a number of setup configuration options that may confuse new users. To work around this, the Clash team offers a [getting started](https://github.com/clash-lang/clash-starters) repository with sensible defaults.
+
+If you are interested in understanding a Clash project structure, we recommend the section on [Cabal and Hackage](../appendix/introduction_to_cabal.md).
+
 
 **Declaring your entrypoint**
 
@@ -55,3 +70,20 @@ The third option, a `Synthesize` pragma, lets you control the naming of your out
     , t_output = PortName "LED"
     }) #-}
 ```
+
+
+## Compiling with Clash
+To compile your Clash design, simply run the Clash compiler. The following flags may be useful
+
+```
+# Which HDL language to output
+--vhdl
+--verilog
+--systemverilog
+
+# (optional) Where to put the output
+-fclash-hdldir=DIR
+```
+
+## Synthesizing to a FPGA
+Now that you have your hardware design in Verilog/VHDL, you can use any number of tools to synthesize the design and upload to an FPGA. We recommend Yosys and the [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build), but many options are available.
