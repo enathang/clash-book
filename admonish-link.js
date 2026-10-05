@@ -35,6 +35,8 @@
         if (titleBar && !titleBar.querySelector(".admonish-header-link")) {
           var link = document.createElement("a");
           link.href = href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
           link.textContent = text;
           link.className = "admonish-header-link";
           titleBar.appendChild(link);

@@ -23,11 +23,11 @@ Haskell allows (and encourages) functions to be polymorphic. This is probably on
 
 > Polymorphism means "many forms" and describes the ability of a single function, interface, or object to work with different data types or take on different behaviors.
 
-Haskell enables polymorphism in functions through the use of `type variables`.
+Haskell enables polymorphism in functions through the use of _type variables_.
 
 **Circling back to our example**
 
-Haskell allows us to use `type variables` in our type signatures to abstractly represent types. You can recognize `type variables` because they always start with a lower case character.
+Haskell allows us to use type variables in our type signatures to abstractly represent types. You can recognize type variables because they always start with a lower case character.
 
 In our above example, we can substitute in a generic type variable `n` for the concrete type-level `4`.
 ```

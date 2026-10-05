@@ -9,6 +9,7 @@ There are two main end targets for a Clash (or any other hardware) design: FPGA 
 **The Clash to FPGA pipeline**
 
 ![](img/haskell-synth-pipeline-colored-2.svg)
+_(You can click on the image to enlarge it)_
 
 ## Setting up the Clash compiler
 

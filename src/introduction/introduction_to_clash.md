@@ -18,6 +18,6 @@ My two sentence description is: Clash is a **Hardware Description Language**, wh
 
 Hopefully this description gives new users enough information to get started. We will attempt to elaborate on these definitions over the course of the book. But sometimes the best way to understand something is simply to see it in action.
 
-For those who are interested in more details, we include some commonly asked questions in the Appendix's [FAQ section](../appendix/faq.md).
+For those who are interested in more details, we include some commonly asked questions about the language in the Appendix's [FAQ section](../appendix/faq.md).
 
 [^1]: https://news.ycombinator.com/item?id=38781739

@@ -2,7 +2,7 @@
 
 When writing hardware designs, we often want to work with raw binary. After all, it is the primitive layer of digital logic and what all of our digital designs are synthesized down to.
 
-In this section, we introduce the basic building block of every circuit: the `Bit`. We also explore what `typeclasses` Bit implements. We then introduce probably the most common type you will use in Clash: `BitVector n`. Finally, we explain how Clash keeps track of sizes on the type level.
+In this section, we introduce the basic building block of every circuit: the `Bit`. We also explore what _typeclasses_ Bit implements. We then introduce probably the most common type you will use in Clash: `BitVector n`. Finally, we explain how Clash keeps track of sizes on the type level.
 ## What is a `Bit`
 A bit is a binary value: a `high (1)` or a `low (0)`.
 
@@ -26,7 +26,7 @@ Okay, but how do we do things with it?
 The type system in Haskell is pretty different to other languages. Without going into too much detail, one important part of any data type is what *type class instances* are defined with it. Type classes define common functions for that data type. They work similarly to Java's `interfaces` or Rust's `traits`.
 
 A general rule of thumb is: when you want to know what something *is*, look at the data type. When you want to know *what you can do with it*, then look at
-1. library functions that use that type and
+1. library functions that use that type
 2. the type classes that type implements
 
 So let's look at a few handpicked classes that Bit implements:
@@ -43,22 +43,11 @@ So let's look at a few handpicked classes that Bit implements:
 + <code>complement :: Bit -> Bit</code>
 + <code>shift :: Bit -> Int -> Bit</code>
 + <code>rotate :: Bit -> Int -> Bit</code>
-+ <code>zeroBits :: Bit</code>
-+ <code>bit :: Int -> Bit</code>
 + <code>setBit :: Bit -> Int -> Bit</code>
 + <code>clearBit :: Bit -> Int -> Bit</code>
 + <code>complementBit :: Bit -> Int -> Bit</code>
 + <code>testBit :: Bit -> Int -> Bool</code>
-+ <code>bitSizeMaybe :: Bit -> Maybe Int</code>
-+ <code>bitSize :: Bit -> Int</code>
-+ <code>isSigned :: Bit -> Bool</code>
-+ <code>shiftL :: Bit -> Int -> Bit</code>
-+ <code>unsafeShiftL :: Bit -> Int -> Bit</code>
-+ <code>shiftR :: Bit -> Int -> Bit</code>
-+ <code>unsafeShiftR :: Bit -> Int -> Bit</code>
-+ <code>rotateL :: Bit -> Int -> Bit</code>
-+ <code>rotateR :: Bit -> Int -> Bit</code>
-+ <code>popCount :: Bit -> Int</code>
++ _Truncated for brevity. See all methods on [Hackage](https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit)._
 </details>
 
 <details>
@@ -118,7 +107,7 @@ So let's look at a few handpicked classes that Bit implements:
 
 We can use any of the functions in the type classes above to work with Bits
 ```
->>> high .&. low      -- From Bits class
+>>> high .&. low        -- From Bits class
 0
 >>> xor high low        -- From Bits class
 1
@@ -133,7 +122,7 @@ We recommend you take a minute and explore some of the type classes.
 Of course, we can also define our own functions that use the `Bit` type
 
 ```
->>> let f a b c = xor (a .&. b) c :: Bit -> Bit -> Bit -> Bit
+>>> let f a b c = xor (a .&. b) c
 >>> f high high high
 0
 ```
@@ -233,22 +222,11 @@ A vector of `n` bits, where `n` is defined on the type level
 + <code>complement :: BitVector n -> BitVector n</code>
 + <code>shift :: BitVector n -> Int -> BitVector n</code>
 + <code>rotate :: BitVector n -> Int -> BitVector n</code>
-+ <code>zeroBits :: BitVector n</code>
-+ <code>bit :: Int -> BitVector n</code>
 + <code>setBit :: BitVector n -> Int -> BitVector n</code>
 + <code>clearBit :: BitVector n -> Int -> BitVector n</code>
 + <code>complementBit :: BitVector n -> Int -> BitVector n</code>
 + <code>testBit :: BitVector n -> Int -> Bool</code>
-+ <code>bitSizeMaybe :: BitVector n -> Maybe Int</code>
-+ <code>bitSize :: BitVector n -> Int</code>
-+ <code>isSigned :: BitVector n -> Bool</code>
-+ <code>shiftL :: BitVector n -> Int -> BitVector n</code>
-+ <code>unsafeShiftL :: BitVector n -> Int -> BitVector n</code>
-+ <code>shiftR :: BitVector n -> Int -> BitVector n</code>
-+ <code>unsafeShiftR :: BitVector n -> Int -> BitVector n</code>
-+ <code>rotateL :: BitVector n -> Int -> BitVector n</code>
-+ <code>rotateR :: BitVector n -> Int -> BitVector n</code>
-+ <code>popCount :: BitVector n -> Int</code>
++ _Truncated for brevity. See all methods on [Hackage](https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:BitVector)._
 </details>
 
 <details>
@@ -334,12 +312,12 @@ Similar to `Bit`, we can use any of the methods defined in the `typeclasses` tha
 >>> let x = 3 :: BitVector 8
 >>> let y = 4 :: BitVector 8
 >>> x + y                        -- Uses Num
-7
+0b0000_0111
 >>> let f a b = (mod a b) <= a   -- Uses Integral, Ord
 >>> f x y
 True
 >>> resize x :: BitVector 16    -- Uses Resize
-7
+0b0000_0000_0000_0011
 ```
 
 **Type level sizing**
@@ -362,11 +340,14 @@ This means that when you declare a type (or Clash infers a type), the size `n` o
       In an equation for ‘it’: it = x + y
 >>> let resized_y = resize y :: BitVector 8
 >>> x + resized_y
-7
+0b0000_0111
 ```
 
 ```admonish warning title="Different from Verilog/VHDL"
-This is one place Clash differs from Verilog/VHDL. Verilog and VHDL will `0`-extend different width numbers to make them match. Clash will throw a type error and force the designer to explicitly handle the conversion (perhaps through `resize`) or use a different function.
+This is one of the many places Clash differs from Verilog/VHDL
+
++ Verilog will implicitly extend narrow values into wider values and truncate wider values into narrow values. These sometimes generate warnings, depending on the tool, but never errors.
++ VHDL will error on assigning vectors of different lengths, but will resize operands implicitly on certain numeric_std arithmetic operators (like `+` on `unsigned`).
 
 One of Haskell's guiding principles, which Clash inherits, is that a strong type system reduces bugs and increases correctness.
 ```
@@ -384,36 +365,33 @@ f a = a
 
 Output
 ````admonish quote title="Synthesized output" collapsible=true
-```mermaid
-flowchart LR
-    classDef hidden fill:none,stroke:none
-    a[" "]:::hidden ==>|"a  /3"| o[" "]:::hidden
-```
 
-It's the exact same as the `Bit` version of the same function, except with three wires instead of one.
+![](img/bitvector-example1-v2.svg)
+
+It's identical to the `Bit` version of the same function, except with three wires instead of one.
+
 ````
 </details>
+
 <details>
 <summary><strong>Example 2</strong></summary>
 
 Input:
 ```
 f :: BitVector 3 -> BitVector 3 -> BitVector 3
-f a b = (mod a b) <= a
+f a b = mod a b
 ```
 
 Output
 ````admonish quote title="Synthesized output" collapsible=true
+
 ```mermaid
 flowchart LR
     a((a)) --> MOD
     b((b)) --> MOD
-    MOD(["MOD"]) --> LTE
-    a --> LTE
-    LTE{{"<="}} --> out(("s"))
+    MOD(["MOD"]) --> out(("s"))
 ```
 
-`a` and `b` (each a 3-bit bus) feed the `MOD` block; `a` is also routed straight through to the comparator, since it's used a second time in `(mod a b) <= a`. The comparator's result is a single-bit `Bool`, so the output is drawn as one wire rather than a 3-wire bus.
 ````
 </details>
 
@@ -426,39 +404,27 @@ f :: BitVector 3 -> BitVector 5 -> BitVector 3
 f a b = output
  where
   c = (resize a) + b
-  d = a !! 0 .&. b !! 0
+  d = a ! 0 .&. b ! 0
   output =
-    if (c > (4 :: BitVector 5) .&. d)
+    if ((c > (4 :: BitVector 5)) .&. d)
         then 0
         else a
 ```
 
 Output
 ````admonish quote title="Synthesized output" collapsible=true
-```mermaid
-flowchart LR
-    a((a)) -->|resize| ADD
-    b((b)) --> ADD
-    ADD(["ADD"]) --> GT
 
-    a -->|a!0| AND1
-    b -->|b!0| AND1
-    AND1(["AND"]) -->|resize| AND2
-    four(("4")) --> AND2
-    AND2(["AND"]) --> GT
+Does this circuit do anything useful? Probably not. But it demonstrates how we can express more complex circuits in Clash.
 
-    GT{"MUX"} -->|then| zero(("0"))
-    GT -->|else| a
+![](img/bitvector-example3-v4.svg)
 
-    zero --> output(("output"))
-    a --> output
-```
+
 ````
 </details>
 
 **Conclusion**
 
-`BitVector n` is ubiquitous in Clash code. However, we often times want to represent values not as a bundle of wires, but at a higher level of abstraction. In the next section, we'll look at how Clash handles numbers.
+`BitVector n` is ubiquitous in Clash code. However, we often want to represent values not as a bundle of wires, but at a higher level of abstraction. In the next section, we'll look at how Clash handles numbers.
 
 But before that, a _quiz_:
 

@@ -1,0 +1,42 @@
+/*
+ * Freehand drawing box, built by sketchpad.js from <div class="sketchpad">.
+ * Uses currentColor (the theme's text color) plus a translucent grey border,
+ * the same approach as code-tabs.css, so it fits every mdBook theme.
+ */
+.sketchpad {
+  margin: 1em 0;
+}
+.sketchpad-canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid rgba(128, 128, 128, 0.55);
+  border-radius: 6px;
+  cursor: crosshair;
+  touch-action: none;       /* drawing must not scroll the page */
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sketchpad-toolbar {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 0.4em;
+}
+.sketchpad-button {
+  appearance: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85em;
+  padding: 0.15em 0.8em;
+  border: 1px solid rgba(128, 128, 128, 0.55);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sketchpad-button:hover {
+  background: rgba(128, 128, 128, 0.15);
+}
+@media print {
+  .sketchpad-toolbar { display: none; }
+}

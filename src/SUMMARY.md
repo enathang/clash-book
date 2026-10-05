@@ -7,7 +7,7 @@
     - [Crash course in Haskell syntax](./introduction/introduction_to_haskell.md)
     - [How to run Clash](./introduction/how_to_run_clash.md)
 - [Chapter: Writing basic circuits](./chapter_01/chapter_1.md)
-  - [Basic data types](./chapter_01/intro.md)
+  - [Basic data types and functions](./chapter_01/basic_datatypes.md)
     - [Bit, BitVector, and BitSize](./chapter_01/bitvector.md)
     - [Unsigned, Signed, Bool](./chapter_01/numbers.md)
     - [Maybe](./chapter_01/maybe.md)
