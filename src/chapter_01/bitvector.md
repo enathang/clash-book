@@ -1,16 +1,16 @@
-# Bit, BitVector, and BitSize
+# Bit, BitVector
 
-When writing hardware designs, we often want to work with raw binary. After all, it is the primitive layer of digital logic and what all of our digital designs are synthesized down to.
+When writing hardware designs, we often want to work with raw binary. After all, it is the primitive building block of digital logic and what all of our digital designs are synthesized down to.
 
-In this section, we introduce the basic building block of every circuit: the `Bit`. We also explore what _typeclasses_ Bit implements. We then introduce probably the most common type you will use in Clash: `BitVector n`. Finally, we explain how Clash keeps track of sizes on the type level.
+In this section, we introduce the basic building block of every circuit: the `Bit`. We also explore what _typeclasses_ Bit implements. We then introduce probably the most common type you will use in Clash: `BitVector n`.
 ## What is a `Bit`
-A bit is a binary value: a `high (1)` or a `low (0)`.
+A bit is a binary value: a `high (1)`, a `low (0)`, or an `undefined (.)`. We can use the `Bit` type to hold these values.
 
 ````admonish example title="Bit"
 <!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See doc on Hackage >" -->
 `data Bit`
 
-A single bit
+A single bit.
 
 **Examples**
 ```
@@ -23,7 +23,7 @@ A single bit
 
 Okay, but how do we do things with it?
 
-The type system in Haskell is pretty different to other languages. Without going into too much detail, one important part of any data type is what *type class instances* are defined with it. Type classes define common functions for that data type. They work similarly to Java's `interfaces` or Rust's `traits`.
+The type system in Haskell is pretty different to other languages. Without going into too much detail, one important part of any data type is what *type class instances* are defined with it. Type classes define common functions that the data type can implement. They work similarly to Java's interfaces or Rust's traits.
 
 A general rule of thumb is: when you want to know what something *is*, look at the data type. When you want to know *what you can do with it*, then look at
 1. library functions that use that type
@@ -31,9 +31,9 @@ A general rule of thumb is: when you want to know what something *is*, look at t
 
 So let's look at a few handpicked classes that Bit implements:
 
-````admonish example title="Bit typeclasses"
+````admonish example title="Bit typeclass instances"
 <!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-BitVector.html#t:Bit" text="See doc on Hackage >" -->
-**Notable type classes**
+**Notable typeclass instances**
 <details>
 <summary><code>Bits Bit</code></summary>
 
@@ -103,6 +103,8 @@ So let's look at a few handpicked classes that Bit implements:
 
 ````
 
+If you're still confused by typeclasses, that's natural. They are one of Haskell's early learning curves. We elaborate on them in the [Appendix](../appendix/typeclasses.md), or feel free to continue reading anyway.
+
 **Examples using type classes**
 
 We can use any of the functions in the type classes above to work with Bits
@@ -119,7 +121,7 @@ True
 
 We recommend you take a minute and explore some of the type classes.
 
-Of course, we can also define our own functions that use the `Bit` type
+Of course, we can also define our own functions over the `Bit` type
 
 ```
 >>> let f a b c = xor (a .&. b) c
@@ -128,7 +130,7 @@ Of course, we can also define our own functions that use the `Bit` type
 ```
 **Synthesizing hardware from `Bit`**
 
-Everything we have done so far, including applying functions, is just in Haskell. Remember, Clash code **is** Haskell code. The power of Clash is that we can also use the Clash compiler to translate this Haskell code into a hardware description.
+Everything we have done so far, including applying functions, is just Haskell. Remember, Clash code **is** Haskell code. The power of Clash is that we can also use the Clash compiler to translate this Haskell code into a hardware description.
 
 We call the process of turning Clash code into HDL **synthesis**.
 
@@ -188,15 +190,40 @@ let f a b = c
 
 **Output**
 ````admonish quote title="Synthesized output" collapsible=true
-Congrats, you created your first combinational loop in Clash!
+Congrats, you created your first combinational loop in Clash! Clash will compile this design. 
 
-This one will not actually compile in Clash.
+![](img/bit-example3-v2.svg)
+
+Combinational loops are almost always bad :) For more information, take a look at [Common pitfall: Combinational loop](./combinational_loop.md).
 ````
 </details>
 
+````admonish exercise title="Exercise: Building a safe" collapsible=true
+Your boss has hired you to design a digital safe for them. The safe has 4 switches `a`, `b`, `c`, `d`. The output signal is either `high` (unlocked) or `low` (locked).
+
+```
+safeKeypad :: Bit -> Bit -> Bit -> Bit -> Bit
+safeKeypad a b c d = undefined    -- Implement me!
+```
+
+Unfortunately, your boss has already assigned passwords to their employees. Your job is to implement the digital safe such that any of the passwords unlock the safe, but the safe stays locked otherwise.
+
+The valid employee passwords are
+```
+0100
+1100
+1110
+1111
+1000
+1001
+1010
+1011
+```
+````
+
 **Conclusion**
 
-In all honesty, while `Bit` is an important data type, you don't end up using it a lot in Clash. This is because you will often work with collections of wires, which is represented in Clash as `BitVector n`.
+In all honesty, while `Bit` is an important data type, you don't end up using it in Clash a lot. You often want to work with collections of `Bit`s, which is more easily represented in Clash as `BitVector n`.
 
 ## What is a `BitVector n`
 Typically, it's useful to represent a collection of bits together. A `BitVector n` is a vector of `n` bits.
@@ -306,7 +333,7 @@ Let's take a look at a few examples to build up an intuition.
 
 Pretty straightforward, right?
 
-Similar to `Bit`, we can use any of the methods defined in the `typeclasses` that `BitVector` implements, along with other functions the `Clash.Prelude` library exports.
+Similar to `Bit`, we can use any of the methods defined in the typeclasses that `BitVector` implements, along with other functions the `Clash.Prelude` library exports.
 
 ```
 >>> let x = 3 :: BitVector 8
@@ -385,12 +412,7 @@ f a b = mod a b
 Output
 ````admonish quote title="Synthesized output" collapsible=true
 
-```mermaid
-flowchart LR
-    a((a)) --> MOD
-    b((b)) --> MOD
-    MOD(["MOD"]) --> out(("s"))
-```
+![](img/bitvector-example2-v2.svg)
 
 ````
 </details>

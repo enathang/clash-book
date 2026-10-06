@@ -59,3 +59,31 @@
 :is(.admonish-bug) > :is(.admonition-title, summary.admonition-title)::before {
   background-color: #9e9e9e;
 }
+
+/*
+ * "exercise" admonish type (declared in book.toml). Grey like quote/bug,
+ * with icons/GlyphsCode1Outline.svg (Glyphs by Goran Spasojevic,
+ * https://github.com/gorango/glyphs) inlined as a data URI. Mirrors what
+ * `mdbook-admonish generate-custom` would emit, but is kept here so that
+ * command doesn't need to be run (and would otherwise overwrite this file).
+ */
+:root {
+  --md-admonition-icon--admonish-exercise: url("data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 80 80'><path fill='currentColor' fill-opacity='.25' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M29.329 25.43a2 2 0 0 0-2.658-2.99L9.512 37.694a3 3 0 0 0 0 4.485l17.16 15.252a2 2 0 0 0 2.657-2.99L13.01 39.937zm21.342 0a2 2 0 0 1 2.658-2.99l17.159 15.253a3 3 0 0 1 0 4.485L53.328 57.43a2 2 0 1 1-2.657-2.99L66.99 39.937z'/></svg>");
+}
+
+:is(.admonition):is(.admonish-exercise) {
+  border-color: #9e9e9e;
+}
+
+:is(.admonish-exercise) > :is(.admonition-title, summary.admonition-title) {
+  background-color: rgba(158, 158, 158, 0.1);
+}
+:is(.admonish-exercise) > :is(.admonition-title, summary.admonition-title)::before {
+  background-color: #9e9e9e;
+  mask-image: var(--md-admonition-icon--admonish-exercise);
+  -webkit-mask-image: var(--md-admonition-icon--admonish-exercise);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+}

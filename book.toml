@@ -18,6 +18,13 @@ level = 0
 command = "mdbook-admonish"
 assets_version = "3.1.0" # do not edit: managed by `mdbook-admonish install`
 
+# Custom admonish type: ```admonish exercise title="..."
+# The visual styling lives in mdbook-admonish-custom.css (hand-maintained).
+[[preprocessor.admonish.custom]]
+directive = "exercise"
+icon = "./icons/GlyphsCode1Outline.svg"
+color = "#9e9e9e"
+
 [preprocessor.quiz]
 
 [preprocessor.mermaid]

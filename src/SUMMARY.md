@@ -8,7 +8,7 @@
     - [How to run Clash](./introduction/how_to_run_clash.md)
 - [Chapter: Writing basic circuits](./chapter_01/chapter_1.md)
   - [Basic data types and functions](./chapter_01/basic_datatypes.md)
-    - [Bit, BitVector, and BitSize](./chapter_01/bitvector.md)
+    - [Bit, BitVector](./chapter_01/bitvector.md)
     - [Unsigned, Signed, Bool](./chapter_01/numbers.md)
     - [Maybe](./chapter_01/maybe.md)
     - [Vec, Tuple](./chapter_01/vec.md)
