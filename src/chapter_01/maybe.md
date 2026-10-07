@@ -1,7 +1,7 @@
 # Maybe
 So far, we have looked at relatively low-level data types: bitvectors, numbers, etc. However, we can also define richer data types and Clash can synthesize them into hardware.
 
-In this section, we look at an example of such a data type: `Maybe a`. Two sections later, we will generalize this structure and look at how Clash can instantiate any statically sized data type into hardware generally.
+In this section, we look at an example of such a data type: `Maybe a`. Two sections later, we will generalize this structure and look at how Clash can instantiate _any_ statically sized data type into hardware.
 
 ## Maybe a
 

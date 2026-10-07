@@ -442,7 +442,33 @@ Does this circuit do anything useful? Probably not. But it demonstrates how we c
 
 
 ````
+
 </details>
+
+````admonish exercise title="Exercise: Checking account numbers" collapsible=true
+Your boss has put you on a new task: checking account numbers of the invoices your company receives. Some of them are fake!
+
+An account number is made up of 12 binary digits with the following structure:
+
+`[CompanyId(0:2)][AccountId(3:11)]`
+
+The following are known, good `companyId`s:
+- `001`: ACME Corp
+- `101`: Umbrella Corp
+- `111`: Rainbow Inc
+
+The following are rules for `accountId`:
+- the leftmost digit must be a `0`
+- the rightmost digit must be a `1`
+- No three sequential bits may be the same
+
+Since there's no existing way to handle these invoices, your boss asks you to do this by hand. However, after doing several dozen by hand, you think there must be an easier way of doing this work!
+
+```
+verifyAccountId :: BitVector 12 -> Bit
+verifyAccountId accountNum = undefined   -- Implement me!
+```
+````
 
 **Conclusion**
 

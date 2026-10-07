@@ -169,6 +169,30 @@ True
 0b0000_0000_1111_1111
 ```
 
+````admonish exercise title="Exercise: Overflow detector" collapsible=true
+An epidemic of bugs is hitting your system all at once. Ones should be zeroes, zeroes should be ones, the math doesn't make any sense. After some debugging, you come to a conclusion: the numbers are overflowing.
+
+To correct for this, you decide to write two functions
+
+```
+willOverflow :: Unsigned 8 -> Unsigned 8 -> Bit
+willOverflow num1 num2 = undefined   -- Implement me!
+
+safeAddition :: Unsigned 8 -> Unsigned 8 -> (Unsigned 8, Bit)
+safeAddition num1 num2 = (safeResult, isResultTruncated)
+ where
+  safeResult = undefined          -- Implement me!
+  isResultTruncated = undefined   -- Implement me!
+```
+
+The first function, `willOverflow`, takes two `Unsigned 8`s and returns whether their sum would overflow.
+
+The second function, `safeAddition`, takes two `Unsigned 8`s and sums them. If their sum would overflow, `safeAddition` returns the largest number representable and also returns `1` for the return `Bit`. Otherwise, `safeAddition` returns the sum and `0` for the bit.
+
+_Additional reading: [Nuclear Gandhi](https://en.wikipedia.org/wiki/Nuclear_Gandhi)_
+
+````
+
 `Unsigned n`, much like `BitVector n`, is one of the most common types in Clash. Typically, when you need to represent a value as a number, you should default to `Unsigned n` unless you have a good reason not to. Such as needing negative values, for example.
 
 ## Signed

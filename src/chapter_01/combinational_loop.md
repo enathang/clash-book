@@ -6,7 +6,11 @@ Pitfall symptoms:
 - If you try and synthesize the circuit to hardware, your tool says "hey, you have a combinational loop"
 ```
 
-Combinational loops are as old as hardware itself. As such, we won't go into an explanation of what combinational loops are. But we will cover a few details on how they appear in Clash, so that you know what to be on the lookout for.
+A combinational loop is when the output of a circuit loops back and influences its own input. We have already seen a combinational loop in the `Bit, BitVector` section.
+
+![](img/bit-example3-v2.svg)
+
+Combinational loops are the bane of any new hardware designer. Aas old as hardware itself. As such, we won't go into an explanation of what combinational loops are. But we will cover a few details on how they appear in Clash, so that you know what to be on the lookout for.
 
 **Surprising combinational loop**
 
