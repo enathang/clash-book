@@ -98,3 +98,30 @@ If we pass in a literal Vec, it's easy for Haskell to check the size of the vect
 This case is different to the previous case. In the previous case, we wanted to restrict polymorphic inputs to only inputs that were well-defined on our function. In this case, we are intentionally restricting our polymorphic inputs to a _subset_ of well-defined inputs that also create resource-efficient representations in hardware. This allows us to prevent users of our functions from accidentally shooting themselves in the foot.
 
 For example, division by a power of `2` in hardware is much smaller than division by any other number.
+
+````admonish exercise title="Exercise: The search for extra-terrestrial intelligence" collapsible=true
+After watching a documentary, your boss is convinced there is other intelligent live in the universe. They plan on buying a number of satellite dishes and monitoring them for activity. The problem is, your boss doesn't know how many dishes the company board will approve (you and I can probably guess, though).
+
+The circuit should take two inputs: a `BitVector` of a parametric length and a vector (of the same parametric length) of `BitVector 8`s. Each bit `i` in the bitvector will correspond to whether dish `i` is detecting anything, and the `i`th `BitVector 8` in the vector will hold the sensor data. Your circuit should output a `Maybe (BitVector 8)`. When one or more dish is detecting something, output `Just avg`, where `avg` is the average of the data readings of the dishes that are detecting something. If no dish is detecting anything, output `Nothing`.
+
+Example when the length is `4`
+```
+>>> averageDishReadings 0b0011 (10 :> 2 :> 3 :> 7 :> Nil)
+Just 5   -- Since the average of 3 and 7 is 5
+>>> averageDishReadings 0b0000 (10 :> 2 :> 3 :> 7 :> Nil)
+Nothing
+```
+
+Let's say, for now, your boss can guarantee the number of dishes will be `20` or fewer (relevant for potential integer overflow during averaging). 
+
+Function to implement (we even let you implement the type signature for practice):
+
+```
+averageDishReadings :: _
+averageDishReadings a b = undefined   -- Todo: Implement me!
+```
+
+**Bonus:** If you've finished implementing the function, but want more practice, feel free to update the implementation to work on `BitVector`s of any length! There's no particular reason the dishes need to output `BitVector 8`s specifically.
+
+**Bonus 2:** For an extra challenge, try writing the circuit to support any number of satellite dishes (instead of just `20` or fewer). You coworker helpfully informs you that for the sum of all dish values (required as part of averaging), the size of the sum scales at most `CLog 2 (n + 1)` for `n` dishes.
+````
