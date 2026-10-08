@@ -2,16 +2,6 @@
 
 In the last section, we explored type variables and specifying constraints. In this section, we will explore how to specify constraints between two or more type variables.
 
-## Constraints
-Constraints limit what types we can substitute into our type variables. Therefore, constraints are never needed in purely monomorphic functions.
-
-We have already seen one of Haskell's constraints: typeclasses. Often times, when you want to use a function on a type, only certain types define that function. So, we require any variable we substitute in implements that typeclass
-
-```
--- Return whether `x > y > z` holds
-f :: Ord a => a -> a -> a -> Bool
-f x y z = (x > y) .&. (y > z)
-```
 
 ## Numerical constraints
 However, Haskell also comes with a number of built-in constraints specifically for type-level numbers:
@@ -40,34 +30,3 @@ Luckily, Haskell allows plugins to the type checker, which extend its capabiliti
 But even these three plugins don't support the full spectrum of type level math. It might be your calling to write the next one!
 
 ## Numerical constraints (with Clash's typechecker plugins)
-
-## Common gotcha: forall.
-There is one pitfall with type variables in Haskell that is so common that it warrants its own section.
-
-We can define type variables both in the definition of functions and within our `where` clauses.
-
-```
-f :: Vec n a -> Vec n a -> Vec n a
-f x y = z
- where
-  z = 3 :: Vec n a
-```
-
-Within our type signature for `f`, both `n` and `a` are universal. HOWEVER, the type variables `n` and `a` within the `where` clause are NOT automatically assumed by ghc to be the same type variables as the function signature.
-
-Meaning even though you use the same name for the type variable, you can run into the error message
-
-```
-Could not deduce `n ~ n0`.
-```
-
-However, if you add the quatifier `forall` to the type variables.
-
-```
-f :: forall n a. Vec n a -> Vec n a -> Vec n a
-f x y = z
- where
-  z = 3 :: Vec n a
-```
-
-Then it will compile cleanly.

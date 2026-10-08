@@ -170,7 +170,7 @@ True
 ```
 
 ````admonish exercise title="Exercise: Overflow detector" collapsible=true
-An epidemic of bugs is hitting your system all at once. Ones should be zeroes, zeroes should be ones, the math doesn't make any sense. After some debugging, you come to a conclusion: the numbers are overflowing.
+An epidemic of bugs is hitting your system all at once. Ones should be zeroes, zeroes should be ones, the math doesn't make any sense. After some debugging, you come to a conclusion: the numbers [are overflowing](https://en.wikipedia.org/wiki/Integer_overflow).
 
 To correct for this, you decide to write two functions
 
