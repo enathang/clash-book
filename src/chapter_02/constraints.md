@@ -1,4 +1,4 @@
-# Constraints
+# Typeclass constraints
 
 In the last section, we introduced type variables and how they can be used to make functions generic. However, we often want to limit _which_ types can be substituted into the type variables.
 
@@ -48,7 +48,7 @@ To generalize this concept, we refer back to a statement made in the previous se
 
 > This may seem like a vacuous statement, but: functions are composed of one or more other functions. To see if this function is well-defined, you simply need to check that the type signatures of all internal functions are respected.
 
-Applying this to our earlier example, the function `isEven` uses the `mod` and `==` functions. Haskell also uses `fromIntegral` on `0`, so that's required as well.
+Applying this logic to our earlier example, the function `isEven` uses the `mod` and `==` functions internally. Haskell also uses `fromIntegral` on `0`, so that's required as well.
 
 ```
 isEven :: (Eq a, Integral a, Num a) => a -> Bool
@@ -142,6 +142,31 @@ getThirdBitOrDefault input default =
 
 Only allow types that are 3 bits or larger, so no default needed
 ```
-getThirdBit :: (BitPack a, 3 <= BitSize) => a -> Bit
+getThirdBit :: (BitPack a, 3 <= BitSize a) => a -> Bit
 getThirdBit input = (pack input) ! 3
 ```
+
+We have not yet covered `3 <= BitSize a`, which is a numerical constraint. However, we cover this in the next section!
+
+````admonish exercise title="Exercise: Deciphering a type signature" collapsible=true
+
+Your coworker has mysteriously vanished. The only clue to their whereabouts in this mysterious function they left on a paper by their desk.
+
+```
+func :: BitVector 4 -> BitVector 4 -> BitVector 4 -> BitVector 4
+func a b c = output
+ where
+  d = (a == b)
+  e = (b == c)
+  output = d .&. e
+```
+
+For some reason, you have a suspicion that rewriting this function into a generic type signature might give you some clues to where they went.
+
+
+<details>
+<summary>Open after genericizing the function</summary>
+Oh. Turns out your coworker just went to get a donut and coffee. They wonder why you thought genericizing their type signature would tell you where they went. Why did you? They appreciate the help though, you saved them a bit of work.
+</details>
+
+````

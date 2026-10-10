@@ -4,7 +4,6 @@ We often want to work with data, not as raw bits, but as numbers. This is true i
 
 Luckily, we as a society have developed (and more importantly agree-upon) abstractions to allow us to work with numbers and let the compiler handle translating them into bits. Clash provides a handful of popular options out of the box, and allows the user to define more if they wish. We will look at two of the most popular in this section: `Unsigned n` and `Signed n`.
 
-
 ## Unsigned
 An `Unsigned n` is a representation of an unsigned number using `n` bits.
 
@@ -199,6 +198,7 @@ _Additional reading: [Nuclear Gandhi](https://en.wikipedia.org/wiki/Nuclear_Gand
 
 Clash also supports signed numbers using two's-complement.
 
+
 ````admonish example title="Signed"
 <!-- admonish-link href="https://hackage.haskell.org/package/clash-prelude/docs/Clash-Sized-Signed.html#t:Signed" text="See doc on Hackage >" -->
 `data Signed (n :: Nat)`
@@ -317,6 +317,22 @@ Signed numbers operate similar to unsigned numbers, so we can use many of the sa
 ```
 
 We won't speak too much about signed numbers, since they are similar to `Unsigned n`, which we have already covered.
+
+````admonish exercise title="Exercise: Bridging the divide" collapsible=true
+A fight has broken out inside your company. One half of your company thinks negative numbers should exist. "Negative numbers fit elegantly in mathematics" they cry. The other half thinks negative numbers shouldn't exist. "How can you have negative apples?" one responds.
+
+As you've learned over the years, it's best to stay out of these company debates. However, you now have a problem: one half of your team has written everything in terms of `Unsigned n` and the other half has written everything in terms of `Signed n`. You need to find a way of temporarily bridging the gap while the debate cools down, when you all can agree on a solution together.
+
+Write two functions, `signedToUnsigned` and `unsignedToSigned`, that convert between the two types. If the conversion is lossless, output the conversion and a `0`. Otherwise, if the conversion is impossible based on the type, return a `0` and a `1` for the lossy bit.
+
+```
+signedToUnsigned :: Signed 8 -> (Unsigned 8, Bool)
+signedToUnsigned signedNum = undefined   -- Todo: implement me!
+
+unsignedToSigned :: Unigned 8 -> (Signed 8, Bool)
+unsignedToSigned unsignedNum = undefined   -- Todo: implement me!
+```
+````
 
 
 ## Bool

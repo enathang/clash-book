@@ -1,4 +1,4 @@
-# Numerical polymorphism
+# Numerical polymorphism and constraints
 
 In the last section, we explored type variables and specifying typeclass constraints. In this section, we will explore another type of constraint: numeric constraints.
 

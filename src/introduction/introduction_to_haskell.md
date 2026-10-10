@@ -2,7 +2,7 @@
 
 This book uses Haskell syntax from the beginning. It attempts to start with only basic Haskell syntax, and introduce more advanced Haskell syntax throughout the chapters.
 
-This section provides a basic overview of how to read Haskell syntax. The reader is not expected to memorize this section before moving on. This section is more of a cheat sheet for the reader to come back to and reference until they become familiar with Haskell syntax.
+This section provides a basic overview of how to read Haskell syntax. **The reader is not expected to memorize this section before moving on.** This section is more of a cheat sheet for the reader to come back to and reference until they become familiar with Haskell syntax.
 
 ## Haskell comments and variables
 
@@ -136,6 +136,8 @@ returnSecondArg :: Integer -> Integer -> Integer
 returnSecondArg _a b = b    -- `_` would also work instead of `_a`
 ```
 
+Otherwise Haskell will emit a warning.
+
 **Make functions infix with <code>``</code>**
 
 Functions that take in two parameters can be made infix by surrounding it with <code>``</code>.
@@ -143,7 +145,7 @@ Functions that take in two parameters can be made infix by surrounding it with <
 xor 3 3
 3 `xor` 3
 ```
-This is a common practice in Haskell code.
+This is a common practice in Haskell code and you'll see it relatively often for math operations.
 
 ## The REPL
 Haskell comes with a REPL (Read-Evaluate-Print Loop) program. The REPL is quite useful as a quick feedback loop on the results of expressions (or if the expression even type checks in the first place).

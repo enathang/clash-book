@@ -91,6 +91,20 @@ Here's a second example, checking to see if two numbers are above a threshold. I
 
 In both examples, we could have instead opted to encode a non-value as a default value (such as `0`). However, because there is nothing to distinguish between a default value and an actual value, we could later forget. Instead, because we represent this information in the type, Clash will not allow our program to typecheck unless we explicitly handle the case where the value is `Nothing`.
 
+````admonish exercise title="Exercise: (Maybe) Bridging the divide" collapsible=true
+You have finished the `signedToUnsigned` and `unsignedToSigned` functions (from "Exercise: Bridging the divide" of the previous section) and given it to your team members to use. However, much to your frustration, the fighting has only intensified while you were away. Your coworkers are using your functions to convert between signed and unsigned, but they're so busy arguing (or formulating new arguments) that they keep forgetting to check the `lossy` bit from your conversion functions.
+
+You decide to rewrite your conversion functions using `Maybe`, so that the lossy bit cannot be ignored! This way, your coworkers will be forced to deal with the case of what to do if the conversion cannot happen losslessly (or else their code will not compile).
+
+```
+signedToUnsignedMaybe :: Signed 8 -> Maybe (Unsigned 8)
+signedToUnsignedMaybe signedNum = undefined   -- Todo: implement me!
+
+unsignedToSignedMaybe :: Unigned 8 -> Maybe (Signed 8)
+unsignedToSignedMaybe unsignedNum = undefined   -- Todo: implement me!
+```
+````
+
 **Conclusion**
 
 `Maybe` is often used in sequential logic, to indicate a value may be present on some cycles but not others. We will cover sequential logic in a later chapter.

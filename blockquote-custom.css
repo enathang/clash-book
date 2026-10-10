@@ -14,3 +14,13 @@ blockquote {
   margin: 20px 0;
   font-style: italic;
 }
+
+/*
+ * Opening quote page (src/introduction/opening_quote.md): the text keeps its
+ * normal paragraph styling; the wrapper just pushes it down so the quote
+ * sits about a quarter of the way down the viewport instead of at the top.
+ * Tune the 25vh to move it up or down (50vh would be dead center).
+ */
+.opening-quote {
+  padding-top: calc(25vh - var(--menu-bar-height, 50px) - 4rem);
+}

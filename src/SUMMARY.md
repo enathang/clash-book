@@ -1,5 +1,6 @@
 # Summary
 - [Introduction](./introduction/introduction.md)
+  - [Opening quote](./introduction/opening_quote.md)
   - [Introduction to the book](./introduction/introduction_to_book.md)
   - [Introduction to Clash](./introduction/introduction_to_clash.md)
   - [Prerequisite knowledge](./introduction/prerequisites.md)
