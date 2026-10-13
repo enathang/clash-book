@@ -1,6 +1,11 @@
 # Custom data types and BitPack
 
+```admonish warning
+Section still under construction
+```
+
 Haskell's rich type system encourages us to define our own types as well. As we will see, as long as our types are a known size at compile time, Clash can synthesize them into hardware.
+
 
 ## What is the `BitPack` class?
 

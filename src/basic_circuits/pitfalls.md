@@ -1,5 +1,9 @@
 # Common pitfalls
 
+```admonish warning
+All sections still under construction
+```
+
 Now you should have enough knowledge to be able to create basic circuits in Clash.
 
 We list some basic traps an engineer might fall into when working with Clash. These traps vary in nature: some have to do with Haskell, some have to do with working with hardware design, and some are unique to Clash.
