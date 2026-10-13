@@ -1,12 +1,12 @@
 # Pattern matching
 
-Pattern matching is a programming language feature that has gained popularity in the last decade or so. The most prominent language example is Rust. 
+Pattern matching is a programming language feature that has gained popularity in the last decade or so. The most prominent language example is probably Rust, but pattern matching has a long history in functional languages.
 
 Pattern matching allows you to
-1. case match on the value you have and
+1. case match on the shape of value you have and
 2. easily access fields within those values (called _destructuring_).
 
-Notably, pattern matching does not make the language _more expressive_. Any code that would use a pattern match can also be written without one. Pattern matching is simply a convenience feature. But it turns out it's pretty convenient.
+Notably, pattern matching does not make the language _more expressive_. Any code that would use a pattern match can also be written without one. Pattern matching is simply a convenience feature. But it turns out it's pretty darn convenient.
 
 ## Pattern matching to destructure values
 Here's an example of code that is a prime candidate for pattern matching
@@ -163,7 +163,7 @@ instance  Functor Maybe  where
 
 ## Bonus: Can I bind a value and destructure it at the same time?
 
-Yes, you can. Here's an example
+Yes, you can using the `@` sign. Here's an example
 
 ```
 numberOrDefault :: Maybe Integer -> Integer

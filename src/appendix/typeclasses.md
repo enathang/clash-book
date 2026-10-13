@@ -1,6 +1,6 @@
 # Explaining composition in Haskell
 
-There are two main forms of polymorphism modern programming languages use: _inheritance_ and _composition_. Haskell and its typeclasses sit firmly in the _composition_ category.
+There are two main forms of polymorphism modern programming languages use: _inheritance_ and _composition_. Haskell adopts the _composition_ approach.
 
 If you are already familiar with composition through languages such as Rust, Haskell works nearly identically (but with different names for the same terms).
 
@@ -96,7 +96,7 @@ From the compiler's perspective, the resolution chain is:
 
 ...that's it really.
 
-## Saving ourselves some time when implementing typeclasses
+## Saving ourselves some time when implementing instances
 The intutions we mention above will take you pretty far. In fact, if you just finished reading the last section, it's probably a good idea that you stop for now and read this section another time. Though composition is simple, it can take some getting used to. Otherwise, continue below.
 
 In the example above, we simplified the source code a bit. We will paste the complete source code below, this time only removing some comments for clarity. The differences we will discuss are highlighted.
@@ -176,7 +176,7 @@ Therefore, for these types of situations, typeclasses can declare a _minimal_ se
 
 **Explaining superclasses**
 
-This feature is not highlighted/present in the examples above, but we include it anyway.
+This feature is not highlighted/present in the examples above, but we include it anyway because it's pervasive in Haskell.
 
 Some typeclasses implementations only make sense if the type also implements another typeclass. For example, consider the `Ord` typeclass:
 

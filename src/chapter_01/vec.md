@@ -67,7 +67,7 @@ While normally we'd walk you through some of the common `Vec` functions, there a
 
 ````admonish example title="Creating"
 
-We can create them literally
+We can create vectors literally
 
 `x = 3 :> 4 :> 5 :> Nil`
 
@@ -162,7 +162,9 @@ or use one of the following functions
 See the [Map, Zip, Fold](./map.md) section
 ````
 
-````admonish example title="Conversions"
+````admonish example title="Converting to/from lists"
+Clash is not able to translate these functions into hardware. However, they are useful for unit tests.
+
 <details>
 <summary><code class="language-haskell">toList :: Vec n a -> [a] </code></summary>
 </details>
