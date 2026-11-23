@@ -12,8 +12,14 @@ A bit is a binary value: a `high (1)`, a `low (0)`, or an `undefined (.)`. We ca
 
 A single bit.
 
-**Examples**
+```clash group=bit hidden
+module Main where
+
+import Clash.Prelude
 ```
+
+**Examples**
+```clash group=bit
 >>> high
 1
 >>> low
@@ -108,7 +114,7 @@ If you're still confused by typeclasses, that's natural. They are one of Haskell
 **Examples using type classes**
 
 We can use any of the functions in the type classes above to work with Bits
-```
+```clash group=bit
 >>> high .&. low        -- From Bits class
 0
 >>> xor high low        -- From Bits class
@@ -322,7 +328,7 @@ A vector of `n` bits, where `n` is defined on the type level
 Let's take a look at a few examples to build up an intuition.
 
 **Examples:**
-```
+```clash group=bit
 >>> 3 :: BitVector 8
 0b0000_0011
 >>> 3 :: BitVector 16

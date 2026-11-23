@@ -32,3 +32,7 @@ command = "mdbook-mermaid"
 
 [preprocessor.chapter-zero]
 levels = [0]   # top-level chapters start at 0
+
+[preprocessor.clash]
+command = "mdbook-clash"
+clash-cmd = ["clash"]

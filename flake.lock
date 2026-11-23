@@ -1,0 +1,291 @@
+{
+  "nodes": {
+    "clash-compiler": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils_2",
+        "ghc-tcplugin-api": "ghc-tcplugin-api",
+        "ghc-typelits-extra": "ghc-typelits-extra",
+        "ghc-typelits-knownnat": "ghc-typelits-knownnat",
+        "ghc-typelits-natnormalise": "ghc-typelits-natnormalise",
+        "nixpkgs": [
+          "mdbook-clash",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787843053,
+        "narHash": "sha256-cMGJ6WMaTYWxXS/gkrm/TUsznMMT/lOixT7xGclWnN8=",
+        "owner": "clash-lang",
+        "repo": "clash-compiler",
+        "rev": "0373fc4920a1d46ebaaf1d66b36bd7d3a3060de3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clash-lang",
+        "ref": "v1.10.1",
+        "repo": "clash-compiler",
+        "type": "github"
+      }
+    },
+    "doctest-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1000000000,
+        "narHash": "sha256-pKEuBEZmEyt/wOhXjMY3WvP/i8CyPtH4psD27eSRZ3E=",
+        "type": "tarball",
+        "url": "https://hackage.haskell.org/package/doctest-0.24.3/doctest-0.24.3.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://hackage.haskell.org/package/doctest-0.24.3/doctest-0.24.3.tar.gz"
+      }
+    },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1794427683,
+        "narHash": "sha256-o7ey9gEilsxaifqJWnBDlYSKbNWYQYtKwDyXeZU2kaU=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "cd489559845d81f673a12885576016c65cbe9363",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": [
+          "mdbook-clash",
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "ghc-tcplugin-api": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1768388673,
+        "narHash": "sha256-3RriTela4iwbvHhF3UigmBOfxJv0+YQGAlXQbnXsX74=",
+        "owner": "sheaf",
+        "repo": "ghc-tcplugin-api",
+        "rev": "c583750b5899846cb455f3fe2d58b3ba9bc910d0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sheaf",
+        "repo": "ghc-tcplugin-api",
+        "type": "github"
+      }
+    },
+    "ghc-typelits-extra": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773994244,
+        "narHash": "sha256-BPOTj6Dqv2Nt+C47MCayXzItXRf3HC4f2kV7lnAjAEY=",
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-extra",
+        "rev": "1d38c49f456406937c5e9e3b3e382af6ccbff0e1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-extra",
+        "type": "github"
+      }
+    },
+    "ghc-typelits-knownnat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774000279,
+        "narHash": "sha256-41mjxMsWHXmAS2bxYVsE3OOav3sWnwPbpP56aRDVUNU=",
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-knownnat",
+        "rev": "21fb8294266484b2e267f3850f5437e87d8b241f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-knownnat",
+        "type": "github"
+      }
+    },
+    "ghc-typelits-natnormalise": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773940027,
+        "narHash": "sha256-MGdoDIOWAHk9IERWtGQhxB5AlBAVbmtCUouKJUv122g=",
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-natnormalise",
+        "rev": "5adf333887f5f9f00e47f69368a2b5e9705c9cbc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clash-lang",
+        "repo": "ghc-typelits-natnormalise",
+        "type": "github"
+      }
+    },
+    "mdbook-admonish-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1774140187,
+        "narHash": "sha256-vD71Hhjn43NnqUg+sluybC2wejjNsY6cvj/PsPvIUnw=",
+        "owner": "padamson",
+        "repo": "mdbook-admonish",
+        "rev": "f67dc47c24bc48dada3ae4decf055fdd6ba4a4ed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "padamson",
+        "ref": "feat/mdbook-0.5-compat",
+        "repo": "mdbook-admonish",
+        "type": "github"
+      }
+    },
+    "mdbook-chapter-zero-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1794615913,
+        "narHash": "sha256-eMqhKwicSCnxu5zjSGgUZa3+tfg/UIjVTtR+N+CfudM=",
+        "owner": "enathang",
+        "repo": "mdbook-chapter-zero",
+        "rev": "d1b52507abd49e72981c92039a68e42f3436da61",
+        "type": "github"
+      },
+      "original": {
+        "owner": "enathang",
+        "ref": "mdbook-0.5-compat",
+        "repo": "mdbook-chapter-zero",
+        "type": "github"
+      }
+    },
+    "mdbook-clash": {
+      "inputs": {
+        "clash-compiler": "clash-compiler",
+        "doctest-src": "doctest-src",
+        "nixpkgs": "nixpkgs",
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1789464054,
+        "narHash": "sha256-PFDQu5yq2P6U+YubQXjUSxVywicqMmFCG5fkzTadc0o=",
+        "owner": "clash-lang",
+        "repo": "mdbook-clash",
+        "rev": "823b156b81f27bbb20afee0eb3e66aa7ea0c69f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "clash-lang",
+        "repo": "mdbook-clash",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1789370336,
+        "narHash": "sha256-6RSEDHIWQtesQKWSu5qRai8L2h4KgCgMEfJHstW99G4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "c7def046b9a883d46974757852106483d741586f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1794408178,
+        "narHash": "sha256-OUDRQTMmN/6cQ/ebDsazUmLj84RxSLaHznKv5As9E1k=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "9397dcb09c9598a33509fbc0cce699bd4e6c84d5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "mdbook-admonish-src": "mdbook-admonish-src",
+        "mdbook-chapter-zero-src": "mdbook-chapter-zero-src",
+        "mdbook-clash": "mdbook-clash",
+        "nixpkgs": "nixpkgs_2"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1791244623,
+        "narHash": "sha256-uuanbkFk8a313Zfrxdcz8Us/yQtaxNnKJtX8v0ZPpd8=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "d36eeed142f88b5a636f2e3856a53c61654cf29b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
+      "flake": false,
+      "locked": {
+        "path": "./nix/systems",
+        "type": "path"
+      },
+      "original": {
+        "path": "./nix/systems",
+        "type": "path"
+      },
+      "parent": [
+        "mdbook-clash"
+      ]
+    }
+  },
+  "root": "root",
+  "version": 7
+}
