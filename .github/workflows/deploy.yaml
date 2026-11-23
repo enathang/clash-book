@@ -20,11 +20,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Nix
-        uses: cachix/install-nix-action@v31
+        uses: nixbuild/nix-quick-install-action@v30
         with:
-          extra_nix_config: |
+          nix_conf: |
             experimental-features = nix-command flakes
             accept-flake-config = true
+            keep-env-derivations = true
+            keep-outputs = true
+      - name: Restore and save Nix store
+        uses: nix-community/cache-nix-action@v7
+        with:
+          # restore and save a cache using this key
+          primary-key: nix-${{ runner.os }}-${{ hashFiles('**/*.nix', '**/flake.lock') }}
+          # if there's no exact hit, start from the most recent cache with this prefix
+          restore-prefixes-first-match: nix-${{ runner.os }}-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
