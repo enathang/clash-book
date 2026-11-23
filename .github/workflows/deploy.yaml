@@ -19,20 +19,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install Rust
-        run: rustup update stable
-      - name: Install mdbook and preprocessors
-        run: |
-          cargo install mdbook --version "0.4.52" --locked --force
-          cargo install mdbook-admonish
-          cargo install mdbook-quiz --locked --version 0.4.0
-          cargo install mdbook-mermaid --version 0.16.2 --locked
-          cargo install mdbook-chapter-zero
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            accept-flake-config = true
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with mdBook
-        run: mdbook build
+        run: nix develop --command mdbook build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
