@@ -199,7 +199,9 @@
         "clash-compiler": "clash-compiler",
         "doctest-src": "doctest-src",
         "nixpkgs": "nixpkgs",
-        "systems": "systems_2"
+        "systems": [
+          "systems"
+        ]
       },
       "locked": {
         "lastModified": 1789464054,
@@ -253,7 +255,8 @@
         "mdbook-admonish-src": "mdbook-admonish-src",
         "mdbook-chapter-zero-src": "mdbook-chapter-zero-src",
         "mdbook-clash": "mdbook-clash",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "systems": "systems_2"
       }
     },
     "systems": {
@@ -272,18 +275,19 @@
       }
     },
     "systems_2": {
-      "flake": false,
       "locked": {
-        "path": "./nix/systems",
-        "type": "path"
+        "lastModified": 1791244623,
+        "narHash": "sha256-uuanbkFk8a313Zfrxdcz8Us/yQtaxNnKJtX8v0ZPpd8=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "d36eeed142f88b5a636f2e3856a53c61654cf29b",
+        "type": "github"
       },
       "original": {
-        "path": "./nix/systems",
-        "type": "path"
-      },
-      "parent": [
-        "mdbook-clash"
-      ]
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
     }
   },
   "root": "root",

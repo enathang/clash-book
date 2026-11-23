@@ -18,10 +18,17 @@
       url = "github:enathang/mdbook-chapter-zero/mdbook-0.5-compat";
       flake = false;
     };
-    mdbook-clash.url = "github:clash-lang/mdbook-clash";
+    # mdbook-clash declares its own systems list as a relative path input, which
+    # Nix can't lock when mdbook-clash is used as a dependency. Supply a locked
+    # one instead.
+    systems.url = "github:nix-systems/default";
+    mdbook-clash = {
+      url = "github:clash-lang/mdbook-clash";
+      inputs.systems.follows = "systems";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, mdbook-admonish-src, mdbook-chapter-zero-src, mdbook-clash }:
+  outputs = { self, nixpkgs, flake-utils, mdbook-admonish-src, mdbook-chapter-zero-src, mdbook-clash, systems }:
     flake-utils.lib.eachSystem [
       "aarch64-linux"
       "aarch64-darwin"
